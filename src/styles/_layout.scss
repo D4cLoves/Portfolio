@@ -1,0 +1,113 @@
+// ==========================================================================
+// Layout — Container, Grid, Responsive Utilities
+// Implements responsive single-column (<768px) and multi-column (>=768px) layouts
+// Validates: Requirements 8.1, 8.2, 8.3, 8.4
+// ==========================================================================
+
+@use 'variables' as *;
+
+// --------------------------------------------------------------------------
+// Container — centered content wrapper
+// --------------------------------------------------------------------------
+.container {
+  width: 100%;
+  max-width: var(--container-max-width);
+  margin-inline: auto;
+  padding-inline: var(--container-padding);
+}
+
+// --------------------------------------------------------------------------
+// Section — vertical rhythm for page sections
+// --------------------------------------------------------------------------
+.section {
+  padding-block: var(--space-3xl);
+
+  @media (min-width: $bp-tablet) {
+    padding-block: var(--space-4xl);
+  }
+
+  &__header {
+    margin-bottom: var(--space-xl);
+
+    @media (min-width: $bp-tablet) {
+      margin-bottom: var(--space-2xl);
+    }
+  }
+
+  &__title {
+    margin-bottom: var(--space-sm);
+  }
+
+  &__subtitle {
+    color: var(--color-text-secondary);
+  }
+}
+
+// --------------------------------------------------------------------------
+// Grid — responsive column layout
+// Single column on mobile (<768px), multi-column on tablet+ (>=768px)
+// --------------------------------------------------------------------------
+.grid {
+  display: grid;
+  gap: var(--space-lg);
+
+  // Single column by default (mobile-first)
+  grid-template-columns: 1fr;
+
+  // Two-column layout for tablet and above
+  @media (min-width: $bp-tablet) {
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--space-xl);
+  }
+
+  // Three-column layout for desktop and above
+  @media (min-width: $bp-desktop) {
+    gap: var(--space-2xl);
+  }
+
+  // Modifier: force 3 columns on desktop
+  &--cols-3 {
+    @media (min-width: $bp-desktop) {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+
+  // Modifier: force 4 columns on wide screens
+  &--cols-4 {
+    @media (min-width: $bp-wide) {
+      grid-template-columns: repeat(4, 1fr);
+    }
+  }
+
+  // Modifier: auto-fit responsive columns
+  &--auto {
+    grid-template-columns: 1fr;
+
+    @media (min-width: $bp-tablet) {
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    }
+  }
+}
+
+// --------------------------------------------------------------------------
+// Responsive visibility utilities
+// --------------------------------------------------------------------------
+.hidden-mobile {
+  @media (max-width: #{$bp-tablet - 1px}) {
+    display: none !important;
+  }
+}
+
+.hidden-desktop {
+  @media (min-width: $bp-tablet) {
+    display: none !important;
+  }
+}
+
+// --------------------------------------------------------------------------
+// Responsive text utilities (prevent horizontal scroll — Req 8.4)
+// --------------------------------------------------------------------------
+.text-wrap {
+  overflow-wrap: break-word;
+  word-break: break-word;
+}

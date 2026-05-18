@@ -1,0 +1,22 @@
+parameters:
+    app.owner_email: '%env(OWNER_EMAIL)%'
+    app.owner_name: '%env(OWNER_NAME)%'
+
+services:
+    _defaults:
+        autowire: true
+        autoconfigure: true
+
+    App\:
+        resource: '../src/'
+        exclude:
+            - '../src/Kernel.php'
+
+    App\Service\ContactMailer:
+        arguments:
+            $ownerEmail: '%app.owner_email%'
+            $ownerName: '%app.owner_name%'
+
+    App\EventSubscriber\ExceptionSubscriber:
+        arguments:
+            $environment: '%kernel.environment%'

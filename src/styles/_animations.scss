@@ -1,0 +1,105 @@
+// ==========================================================================
+// Animations — Entrance transitions, hover effects
+// All animations complete within 600ms (Requirement 9.3)
+// Uses var(--transition-base) 300ms and var(--transition-slow) 500ms
+// Validates: Requirements 9.1, 9.2, 9.3
+// ==========================================================================
+
+// --------------------------------------------------------------------------
+// Scroll-triggered entrance animations
+// Sections start hidden, revealed when .animate-in is added by JS
+// --------------------------------------------------------------------------
+
+.hero,
+.about,
+.approach,
+.cases,
+.contact {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity var(--transition-slow), transform var(--transition-slow);
+}
+
+// Revealed state — triggered by Intersection Observer adding .animate-in
+.animate-in {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+// --------------------------------------------------------------------------
+// Staggered children animation
+// Children within an animated section get incremental delays
+// --------------------------------------------------------------------------
+
+.animate-in {
+  .about__stack,
+  .about__experience,
+  .about__directions,
+  .approach__principles,
+  .approach__ai,
+  .approach__value,
+  .cases__group,
+  .contact__field {
+    opacity: 0;
+    transform: translateY(12px);
+    transition: opacity var(--transition-slow), transform var(--transition-slow);
+    animation: stagger-in var(--transition-slow) forwards;
+  }
+
+  @for $i from 1 through 6 {
+    :nth-child(#{$i}) {
+      animation-delay: #{$i * 80}ms;
+    }
+  }
+}
+
+@keyframes stagger-in {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+// --------------------------------------------------------------------------
+// Hover effects — Cards and buttons (max 600ms)
+// --------------------------------------------------------------------------
+
+// Project cards hover
+.cases__card {
+  transition: transform var(--transition-base), box-shadow var(--transition-base);
+
+  &:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-lg);
+  }
+}
+
+// Badge hover
+.about__badge,
+.cases__badge {
+  transition: transform var(--transition-fast), background-color var(--transition-fast);
+
+  &:hover {
+    transform: scale(1.05);
+  }
+}
+
+// Nav link hover effect
+.nav__link {
+  transition: color var(--transition-base);
+
+  &:hover {
+    color: var(--color-accent-hover);
+  }
+}
+
+// Generic button hover (applies to submit and any .btn class)
+button,
+[role='button'] {
+  transition: transform var(--transition-base), box-shadow var(--transition-base),
+    background-color var(--transition-base);
+}

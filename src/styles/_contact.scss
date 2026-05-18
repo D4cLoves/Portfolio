@@ -1,0 +1,213 @@
+// ==========================================================================
+// Contact Section — Form layout, input styles, error states, button states
+// Validates: Requirements 5.1, 5.2, 5.3, 5.4, 5.5
+// ==========================================================================
+
+.contact {
+  padding: var(--space-4xl) 0;
+  background-color: var(--color-bg-primary);
+}
+
+.contact__container {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 0 var(--container-padding);
+}
+
+.contact__title {
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--color-text-primary);
+  text-align: center;
+  margin-bottom: var(--space-sm);
+}
+
+.contact__subtitle {
+  font-size: 1rem;
+  color: var(--color-text-secondary);
+  text-align: center;
+  margin-bottom: var(--space-2xl);
+}
+
+// --------------------------------------------------------------------------
+// Form layout
+// --------------------------------------------------------------------------
+
+.contact__form {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-lg);
+}
+
+.contact__field {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-xs);
+}
+
+.contact__label {
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: var(--color-text-secondary);
+}
+
+// --------------------------------------------------------------------------
+// Input styles
+// --------------------------------------------------------------------------
+
+.contact__input {
+  width: 100%;
+  padding: var(--space-md);
+  background-color: var(--color-bg-secondary);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  color: var(--color-text-primary);
+  font-size: 1rem;
+  font-family: inherit;
+  transition: border-color var(--transition-base), box-shadow var(--transition-base);
+
+  &::placeholder {
+    color: var(--color-text-muted);
+  }
+
+  &:focus {
+    outline: none;
+    border-color: var(--color-accent);
+    box-shadow: 0 0 0 3px var(--color-accent-subtle);
+  }
+
+  // Error state
+  &--error {
+    border-color: var(--color-error);
+
+    &:focus {
+      border-color: var(--color-error);
+      box-shadow: 0 0 0 3px rgba(244, 67, 54, 0.12);
+    }
+  }
+}
+
+// --------------------------------------------------------------------------
+// Textarea
+// --------------------------------------------------------------------------
+
+.contact__textarea {
+  min-height: 140px;
+  resize: vertical;
+}
+
+// --------------------------------------------------------------------------
+// Error messages
+// --------------------------------------------------------------------------
+
+.contact__error {
+  font-size: 0.75rem;
+  color: var(--color-error);
+  min-height: 0;
+  overflow: hidden;
+  transition: min-height var(--transition-base);
+
+  &:empty {
+    display: none;
+  }
+}
+
+// --------------------------------------------------------------------------
+// Submit button
+// --------------------------------------------------------------------------
+
+.contact__submit {
+  padding: var(--space-md) var(--space-xl);
+  background-color: var(--color-accent);
+  color: #ffffff;
+  font-size: 1rem;
+  font-weight: 600;
+  border: none;
+  border-radius: var(--radius-md);
+  cursor: pointer;
+  transition: background-color var(--transition-base), transform var(--transition-base),
+    opacity var(--transition-base);
+
+  &:hover {
+    background-color: var(--color-accent-hover);
+    transform: translateY(-1px);
+  }
+
+  &:active {
+    transform: translateY(0);
+  }
+
+  &:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+    transform: none;
+  }
+
+  // Loading state — pulsing animation
+  &--loading {
+    pointer-events: none;
+    opacity: 0.7;
+    animation: pulse 1.2s ease-in-out infinite;
+  }
+}
+
+@keyframes pulse {
+  0%,
+  100% {
+    opacity: 0.7;
+  }
+  50% {
+    opacity: 0.4;
+  }
+}
+
+// --------------------------------------------------------------------------
+// Notification area
+// --------------------------------------------------------------------------
+
+.contact__notification {
+  margin-top: var(--space-lg);
+  padding: var(--space-md);
+  border-radius: var(--radius-md);
+  font-size: 0.875rem;
+  text-align: center;
+  transition: opacity var(--transition-base);
+
+  &:empty {
+    display: none;
+  }
+
+  &--success {
+    background-color: rgba(76, 175, 80, 0.1);
+    color: var(--color-success);
+    border: 1px solid var(--color-success);
+  }
+
+  &--error {
+    background-color: rgba(244, 67, 54, 0.1);
+    color: var(--color-error);
+    border: 1px solid var(--color-error);
+  }
+}
+
+// --------------------------------------------------------------------------
+// Footer
+// --------------------------------------------------------------------------
+
+.footer {
+  padding: var(--space-xl) 0;
+  background-color: var(--color-bg-secondary);
+  border-top: 1px solid var(--color-border);
+}
+
+.footer__container {
+  max-width: var(--container-max-width);
+  margin: 0 auto;
+  padding: 0 var(--container-padding);
+  text-align: center;
+}
+
+.footer__copyright {
+  font-size: 0.875rem;
+  color: var(--color-text-muted);
+}

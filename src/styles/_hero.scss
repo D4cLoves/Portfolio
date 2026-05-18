@@ -1,0 +1,138 @@
+// ==========================================================================
+// Hero — Full-viewport intro section with photo and tagline
+// Validates: Requirements 1.1, 1.2, 1.3, 1.4, 9.4
+// ==========================================================================
+
+@use 'variables' as *;
+
+// --------------------------------------------------------------------------
+// Hero section — full viewport height with subtle background
+// --------------------------------------------------------------------------
+.hero {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  padding-top: calc(var(--space-3xl) + 60px); // offset for fixed nav
+  padding-bottom: var(--space-3xl);
+  overflow: hidden;
+
+  // Subtle radial gradient background
+  &::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -25%;
+    width: 150%;
+    height: 150%;
+    background: radial-gradient(
+      ellipse at 30% 50%,
+      rgba(108, 99, 255, 0.06) 0%,
+      transparent 60%
+    );
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  // --------------------------------------------------------------------------
+  // Container — flex row on desktop, column on mobile
+  // --------------------------------------------------------------------------
+  &__container {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--space-2xl);
+    max-width: var(--container-max-width);
+    margin-inline: auto;
+    padding-inline: var(--container-padding);
+    width: 100%;
+
+    // Stack vertically on mobile
+    @media (max-width: #{$bp-tablet - 1px}) {
+      flex-direction: column-reverse;
+      text-align: center;
+      gap: var(--space-xl);
+    }
+  }
+
+  // --------------------------------------------------------------------------
+  // Content — text block (left side on desktop)
+  // --------------------------------------------------------------------------
+  &__content {
+    flex: 1;
+    max-width: 600px;
+
+    @media (max-width: #{$bp-tablet - 1px}) {
+      max-width: 100%;
+    }
+  }
+
+  // --------------------------------------------------------------------------
+  // Name — large heading with gradient text
+  // --------------------------------------------------------------------------
+  &__name {
+    font-size: clamp(2rem, 5vw, 3.5rem);
+    font-weight: 800;
+    line-height: 1.1;
+    margin-bottom: var(--space-md);
+    background: linear-gradient(
+      135deg,
+      var(--color-text-primary) 0%,
+      var(--color-accent) 100%
+    );
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  // --------------------------------------------------------------------------
+  // Tagline — secondary descriptive text
+  // --------------------------------------------------------------------------
+  &__tagline {
+    font-size: clamp(1.125rem, 2.5vw, 1.5rem);
+    color: var(--color-text-secondary);
+    line-height: 1.5;
+    font-weight: 400;
+  }
+
+  // --------------------------------------------------------------------------
+  // Photo wrapper — centers the photo element
+  // --------------------------------------------------------------------------
+  &__photo-wrapper {
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  // --------------------------------------------------------------------------
+  // Photo — circular with shadow and subtle border
+  // --------------------------------------------------------------------------
+  &__photo {
+    width: 280px;
+    height: 280px;
+    max-width: 100%;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 3px solid var(--color-border);
+    box-shadow: var(--shadow-lg), 0 0 40px rgba(108, 99, 255, 0.15);
+    transition: transform var(--transition-base), box-shadow var(--transition-base);
+
+    &:hover {
+      transform: scale(1.03);
+      box-shadow: var(--shadow-lg), 0 0 60px rgba(108, 99, 255, 0.25);
+    }
+
+    @media (min-width: $bp-tablet) {
+      width: 300px;
+      height: 300px;
+    }
+
+    @media (max-width: #{$bp-tablet - 1px}) {
+      width: 220px;
+      height: 220px;
+    }
+  }
+}

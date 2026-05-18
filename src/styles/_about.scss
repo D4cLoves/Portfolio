@@ -1,0 +1,156 @@
+// ==========================================================================
+// About — Tech stack badges, experience display, directions
+// Validates: Requirements 2.1, 2.2, 2.3, 2.4, 9.4
+// ==========================================================================
+
+@use 'variables' as *;
+
+// --------------------------------------------------------------------------
+// About section
+// --------------------------------------------------------------------------
+.about {
+  padding-block: var(--space-3xl);
+  background-color: var(--color-bg-primary);
+
+  @media (min-width: $bp-tablet) {
+    padding-block: var(--space-4xl);
+  }
+
+  // --------------------------------------------------------------------------
+  // Container
+  // --------------------------------------------------------------------------
+  &__container {
+    max-width: var(--container-max-width);
+    margin-inline: auto;
+    padding-inline: var(--container-padding);
+  }
+
+  // --------------------------------------------------------------------------
+  // Title
+  // --------------------------------------------------------------------------
+  &__title {
+    font-size: clamp(1.75rem, 4vw, 2.5rem);
+    font-weight: 700;
+    color: var(--color-text-primary);
+    margin-bottom: var(--space-2xl);
+  }
+
+  // --------------------------------------------------------------------------
+  // Subtitle — used for subsection headings
+  // --------------------------------------------------------------------------
+  &__subtitle {
+    font-size: 1.125rem;
+    font-weight: 600;
+    color: var(--color-text-primary);
+    margin-bottom: var(--space-md);
+  }
+
+  // --------------------------------------------------------------------------
+  // Stack section
+  // --------------------------------------------------------------------------
+  &__stack {
+    margin-bottom: var(--space-xl);
+  }
+
+  // --------------------------------------------------------------------------
+  // Badge list — flex wrap for pill badges
+  // --------------------------------------------------------------------------
+  &__badge-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-sm);
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  &__badge-item {
+    display: inline-flex;
+  }
+
+  // --------------------------------------------------------------------------
+  // Badge — pill-shaped tech tag
+  // --------------------------------------------------------------------------
+  &__badge {
+    display: inline-block;
+    padding: var(--space-xs) var(--space-md);
+    font-size: 0.85rem;
+    font-weight: 500;
+    color: var(--color-accent);
+    background-color: var(--color-accent-subtle);
+    border-radius: var(--radius-full);
+    border: 1px solid rgba(108, 99, 255, 0.2);
+    transition: background-color var(--transition-fast), transform var(--transition-fast);
+
+    &:hover {
+      background-color: rgba(108, 99, 255, 0.2);
+      transform: translateY(-1px);
+    }
+
+    // Secondary badge — more muted for additional stack
+    &--secondary {
+      color: var(--color-text-secondary);
+      background-color: var(--color-bg-tertiary);
+      border-color: var(--color-border);
+
+      &:hover {
+        background-color: var(--color-bg-secondary);
+        border-color: var(--color-border-hover);
+        transform: translateY(-1px);
+      }
+    }
+  }
+
+  // --------------------------------------------------------------------------
+  // Experience
+  // --------------------------------------------------------------------------
+  &__experience {
+    margin-bottom: var(--space-xl);
+  }
+
+  &__experience-text {
+    font-size: 1rem;
+    color: var(--color-text-primary);
+    margin-bottom: var(--space-xs);
+    line-height: 1.6;
+  }
+
+  &__experience-detail {
+    font-size: 0.95rem;
+    color: var(--color-text-secondary);
+    line-height: 1.6;
+  }
+
+  // --------------------------------------------------------------------------
+  // Directions
+  // --------------------------------------------------------------------------
+  &__directions {
+    margin-bottom: var(--space-lg);
+  }
+
+  &__directions-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-sm);
+  }
+
+  &__directions-item {
+    position: relative;
+    padding-left: var(--space-lg);
+    font-size: 0.95rem;
+    color: var(--color-text-secondary);
+    line-height: 1.6;
+
+    // Accent bullet
+    &::before {
+      content: '▸';
+      position: absolute;
+      left: 0;
+      color: var(--color-accent);
+      font-weight: 700;
+    }
+  }
+}

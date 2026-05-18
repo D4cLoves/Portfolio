@@ -1,0 +1,134 @@
+// ==========================================================================
+// Approach — Work principles, AI philosophy, value propositions
+// Validates: Requirements 3.1, 3.2, 3.3, 9.4
+// ==========================================================================
+
+@use 'variables' as *;
+
+// --------------------------------------------------------------------------
+// Approach section
+// --------------------------------------------------------------------------
+.approach {
+  padding-block: var(--space-3xl);
+  background-color: var(--color-bg-secondary);
+
+  @media (min-width: $bp-tablet) {
+    padding-block: var(--space-4xl);
+  }
+
+  // --------------------------------------------------------------------------
+  // Container
+  // --------------------------------------------------------------------------
+  &__container {
+    max-width: var(--container-max-width);
+    margin-inline: auto;
+    padding-inline: var(--container-padding);
+  }
+
+  // --------------------------------------------------------------------------
+  // Title
+  // --------------------------------------------------------------------------
+  &__title {
+    font-size: clamp(1.75rem, 4vw, 2.5rem);
+    font-weight: 700;
+    color: var(--color-text-primary);
+    margin-bottom: var(--space-2xl);
+  }
+
+  // --------------------------------------------------------------------------
+  // Subtitle
+  // --------------------------------------------------------------------------
+  &__subtitle {
+    font-size: 1.125rem;
+    font-weight: 600;
+    color: var(--color-text-primary);
+    margin-bottom: var(--space-md);
+  }
+
+  // --------------------------------------------------------------------------
+  // Principles — numbered list with accent numbers
+  // --------------------------------------------------------------------------
+  &__principles {
+    margin-bottom: var(--space-xl);
+  }
+
+  &__principles-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    counter-reset: principles;
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-md);
+  }
+
+  &__principles-item {
+    position: relative;
+    padding-left: calc(var(--space-xl) + var(--space-sm));
+    font-size: 0.95rem;
+    color: var(--color-text-secondary);
+    line-height: 1.6;
+    counter-increment: principles;
+
+    // Accent-colored number
+    &::before {
+      content: counter(principles) '.';
+      position: absolute;
+      left: 0;
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: var(--color-accent);
+    }
+  }
+
+  // --------------------------------------------------------------------------
+  // AI section
+  // --------------------------------------------------------------------------
+  &__ai {
+    margin-bottom: var(--space-xl);
+    padding: var(--space-lg);
+    background-color: var(--color-bg-card);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-lg);
+    border-left: 3px solid var(--color-accent);
+  }
+
+  &__ai-text {
+    font-size: 0.95rem;
+    color: var(--color-text-secondary);
+    line-height: 1.7;
+  }
+
+  // --------------------------------------------------------------------------
+  // Value propositions
+  // --------------------------------------------------------------------------
+  &__value {
+    margin-bottom: var(--space-lg);
+  }
+
+  &__value-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-sm);
+  }
+
+  &__value-item {
+    position: relative;
+    padding-left: var(--space-lg);
+    font-size: 0.95rem;
+    color: var(--color-text-secondary);
+    line-height: 1.6;
+
+    // Checkmark bullet
+    &::before {
+      content: '✓';
+      position: absolute;
+      left: 0;
+      color: var(--color-success);
+      font-weight: 700;
+    }
+  }
+}
