@@ -2,6 +2,7 @@ import './styles/main.scss';
 import { initNavigation } from './scripts/navigation';
 import { initAnimations } from './scripts/animations';
 import { initForm } from './scripts/form';
+import { initChatWidget } from './scripts/chat-widget';
 
 document.addEventListener('DOMContentLoaded', () => {
   // Initialize navigation with smooth scroll and active section highlighting
@@ -26,4 +27,7 @@ document.addEventListener('DOMContentLoaded', () => {
     formSelector: '.contact__form',
     apiEndpoint: '/api/contact',
   });
+
+  // Initialize AI chat widget
+  initChatWidget();
 });

@@ -1,0 +1,210 @@
+// ==========================================================================
+// AI Chat Widget — Floating chat button + panel
+// ==========================================================================
+
+@use 'variables' as *;
+
+// --------------------------------------------------------------------------
+// Toggle button — floating in bottom-right corner
+// --------------------------------------------------------------------------
+.chat-widget__toggle {
+  position: fixed;
+  bottom: var(--space-xl);
+  right: var(--space-xl);
+  z-index: 9999;
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background: var(--color-accent);
+  color: #fff;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: var(--shadow-lg), 0 0 20px rgba(108, 99, 255, 0.3);
+  transition: transform var(--transition-base), box-shadow var(--transition-base), opacity var(--transition-base);
+
+  &:hover {
+    transform: scale(1.08);
+    box-shadow: var(--shadow-lg), 0 0 30px rgba(108, 99, 255, 0.5);
+  }
+
+  &--hidden {
+    opacity: 0;
+    pointer-events: none;
+    transform: scale(0.8);
+  }
+}
+
+// --------------------------------------------------------------------------
+// Chat panel
+// --------------------------------------------------------------------------
+.chat-widget__panel {
+  position: fixed;
+  bottom: calc(var(--space-xl) + 70px);
+  right: var(--space-xl);
+  z-index: 9998;
+  width: 360px;
+  max-width: calc(100vw - 32px);
+  height: 480px;
+  max-height: calc(100vh - 120px);
+  background: var(--color-bg-secondary);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-lg);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+
+  // Hidden by default
+  opacity: 0;
+  transform: translateY(16px) scale(0.95);
+  pointer-events: none;
+  transition: opacity var(--transition-base), transform var(--transition-base);
+
+  &--open {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+    pointer-events: auto;
+  }
+}
+
+// --------------------------------------------------------------------------
+// Header
+// --------------------------------------------------------------------------
+.chat-widget__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: var(--space-md) var(--space-lg);
+  background: var(--color-bg-tertiary);
+  border-bottom: 1px solid var(--color-border);
+}
+
+.chat-widget__title {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--color-text-primary);
+}
+
+.chat-widget__close {
+  background: none;
+  border: none;
+  color: var(--color-text-muted);
+  font-size: 1.5rem;
+  cursor: pointer;
+  line-height: 1;
+  padding: 0;
+  transition: color var(--transition-fast);
+
+  &:hover {
+    color: var(--color-text-primary);
+  }
+}
+
+// --------------------------------------------------------------------------
+// Messages area
+// --------------------------------------------------------------------------
+.chat-widget__messages {
+  flex: 1;
+  overflow-y: auto;
+  padding: var(--space-md);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-sm);
+}
+
+// --------------------------------------------------------------------------
+// Message bubbles
+// --------------------------------------------------------------------------
+.chat-widget__bubble {
+  max-width: 85%;
+  padding: var(--space-sm) var(--space-md);
+  border-radius: var(--radius-md);
+  font-size: 0.85rem;
+  line-height: 1.5;
+  word-wrap: break-word;
+
+  &--user {
+    align-self: flex-end;
+    background: var(--color-accent);
+    color: #fff;
+    border-bottom-right-radius: var(--radius-sm);
+  }
+
+  &--assistant {
+    align-self: flex-start;
+    background: var(--color-bg-card);
+    color: var(--color-text-primary);
+    border: 1px solid var(--color-border);
+    border-bottom-left-radius: var(--radius-sm);
+  }
+
+  &--typing {
+    animation: pulse-dots 1.2s ease-in-out infinite;
+  }
+}
+
+@keyframes pulse-dots {
+  0%, 100% { opacity: 0.4; }
+  50% { opacity: 1; }
+}
+
+// --------------------------------------------------------------------------
+// Input row
+// --------------------------------------------------------------------------
+.chat-widget__input-row {
+  display: flex;
+  gap: var(--space-xs);
+  padding: var(--space-sm) var(--space-md);
+  border-top: 1px solid var(--color-border);
+  background: var(--color-bg-tertiary);
+}
+
+.chat-widget__input {
+  flex: 1;
+  padding: var(--space-sm) var(--space-md);
+  background: var(--color-bg-primary);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  color: var(--color-text-primary);
+  font-size: 0.85rem;
+  outline: none;
+  transition: border-color var(--transition-fast);
+
+  &::placeholder {
+    color: var(--color-text-muted);
+  }
+
+  &:focus {
+    border-color: var(--color-accent);
+  }
+
+  &:disabled {
+    opacity: 0.5;
+  }
+}
+
+.chat-widget__send {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  background: var(--color-accent);
+  color: #fff;
+  border: none;
+  border-radius: var(--radius-md);
+  cursor: pointer;
+  transition: background-color var(--transition-fast);
+
+  &:hover {
+    background: var(--color-accent-hover);
+  }
+
+  &:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+  }
+}
