@@ -28,11 +28,6 @@ interface ContactData {
   comment?: string;
 }
 
-interface ValidationError {
-  field: string;
-  message: string;
-}
-
 function validate(data: unknown): { valid: true; data: ContactData } | { valid: false; errors: Record<string, string> } {
   if (!data || typeof data !== 'object') {
     return { valid: false, errors: { _form: 'Некорректные данные' } };
