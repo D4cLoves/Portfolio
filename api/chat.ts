@@ -2,11 +2,11 @@
  * Vercel Serverless Function — AI Chat Assistant
  *
  * Provides an AI-powered Q&A about the developer.
- * Uses Google Gemini API (free tier) with developer context.
+ * Uses Groq API (free tier) with Llama 3.1 model and developer context.
  * Demonstrates: API integration, prompt engineering, error handling.
  *
  * Environment variables required:
- * - GEMINI_API_KEY: Google AI Studio API key (free at aistudio.google.com)
+ * - GROQ_API_KEY: Groq API key (free at console.groq.com)
  */
 
 import type { VercelRequest, VercelResponse } from '@vercel/node';
@@ -80,43 +80,38 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
     return res.status(400).json({ error: 'Сообщение слишком длинное (макс. 500 символов)' });
   }
 
-  const apiKey = process.env.GEMINI_API_KEY;
+  const apiKey = process.env.GROQ_API_KEY;
   if (!apiKey) {
     return res.status(500).json({ error: 'AI-сервис временно недоступен' });
   }
 
   try {
-    // Google Gemini API endpoint
-    const url = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=${apiKey}`;
-
-    const response = await fetch(url, {
+    // Groq API (free tier, OpenAI-compatible endpoint)
+    const response = await fetch('https://api.groq.com/openai/v1/chat/completions', {
       method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
+      headers: {
+        'Content-Type': 'application/json',
+        'Authorization': `Bearer ${apiKey}`,
+      },
       body: JSON.stringify({
-        system_instruction: {
-          parts: [{ text: DEVELOPER_CONTEXT }],
-        },
-        contents: [
-          {
-            role: 'user',
-            parts: [{ text: message.trim() }],
-          },
+        model: 'llama-3.1-8b-instant',
+        messages: [
+          { role: 'system', content: DEVELOPER_CONTEXT },
+          { role: 'user', content: message.trim() },
         ],
-        generationConfig: {
-          maxOutputTokens: 300,
-          temperature: 0.7,
-        },
+        max_tokens: 300,
+        temperature: 0.7,
       }),
     });
 
     if (!response.ok) {
       const errorData = await response.json().catch(() => ({}));
-      console.error('Gemini API error:', response.status, errorData);
+      console.error('Groq API error:', response.status, errorData);
       return res.status(502).json({ error: 'Не удалось получить ответ от AI' });
     }
 
     const data = await response.json();
-    const reply = data.candidates?.[0]?.content?.parts?.[0]?.text ?? 'Не удалось сформировать ответ.';
+    const reply = data.choices?.[0]?.message?.content ?? 'Не удалось сформировать ответ.';
 
     return res.status(200).json({ reply });
   } catch (error) {

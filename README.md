@@ -136,7 +136,7 @@ npm run test:watch  # Watch-режим
    - `SMTP_PASS` — пароль приложения
    - `OWNER_EMAIL` — email для уведомлений
    - `OWNER_NAME` — имя владельца
-   - `GEMINI_API_KEY` — ключ Google AI (бесплатно на aistudio.google.com)
+   - `GROQ_API_KEY` — ключ Groq API (бесплатно на console.groq.com)
 3. Deploy — Vercel автоматически соберёт фронт и подхватит serverless-функцию
 
 ---
