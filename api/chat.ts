@@ -2,11 +2,11 @@
  * Vercel Serverless Function — AI Chat Assistant
  *
  * Provides an AI-powered Q&A about the developer.
- * Uses OpenAI API with a system prompt containing developer context.
+ * Uses Google Gemini API (free tier) with developer context.
  * Demonstrates: API integration, prompt engineering, error handling.
  *
  * Environment variables required:
- * - OPENAI_API_KEY: OpenAI API key
+ * - GEMINI_API_KEY: Google AI Studio API key (free at aistudio.google.com)
  */
 
 import type { VercelRequest, VercelResponse } from '@vercel/node';
@@ -16,7 +16,7 @@ import type { VercelRequest, VercelResponse } from '@vercel/node';
 // ---------------------------------------------------------------------------
 
 const DEVELOPER_CONTEXT = `
-Ты — AI-ассистент на портфолио Владислава Трубникова. Отвечай кратко, дружелюбно, по делу.
+Ты — AI-ассистент на портфолио Владислава Трубникова. Отвечай кратко, дружелюбно, по делу. На русском языке.
 Отвечай только на вопросы о Владиславе и его работе. На нерелевантные вопросы вежливо перенаправляй к теме.
 
 ИНФОРМАЦИЯ О РАЗРАБОТЧИКЕ:
@@ -80,37 +80,43 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
     return res.status(400).json({ error: 'Сообщение слишком длинное (макс. 500 символов)' });
   }
 
-  const apiKey = process.env.OPENAI_API_KEY;
+  const apiKey = process.env.GEMINI_API_KEY;
   if (!apiKey) {
     return res.status(500).json({ error: 'AI-сервис временно недоступен' });
   }
 
   try {
-    const response = await fetch('https://api.openai.com/v1/chat/completions', {
+    // Google Gemini API endpoint
+    const url = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=${apiKey}`;
+
+    const response = await fetch(url, {
       method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-        'Authorization': `Bearer ${apiKey}`,
-      },
+      headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({
-        model: 'gpt-4o-mini',
-        messages: [
-          { role: 'system', content: DEVELOPER_CONTEXT },
-          { role: 'user', content: message.trim() },
+        system_instruction: {
+          parts: [{ text: DEVELOPER_CONTEXT }],
+        },
+        contents: [
+          {
+            role: 'user',
+            parts: [{ text: message.trim() }],
+          },
         ],
-        max_tokens: 300,
-        temperature: 0.7,
+        generationConfig: {
+          maxOutputTokens: 300,
+          temperature: 0.7,
+        },
       }),
     });
 
     if (!response.ok) {
       const errorData = await response.json().catch(() => ({}));
-      console.error('OpenAI API error:', response.status, errorData);
+      console.error('Gemini API error:', response.status, errorData);
       return res.status(502).json({ error: 'Не удалось получить ответ от AI' });
     }
 
     const data = await response.json();
-    const reply = data.choices?.[0]?.message?.content ?? 'Не удалось сформировать ответ.';
+    const reply = data.candidates?.[0]?.content?.parts?.[0]?.text ?? 'Не удалось сформировать ответ.';
 
     return res.status(200).json({ reply });
   } catch (error) {
