@@ -3,7 +3,7 @@ import { initForm } from './scripts/form';
 import { initModals } from './scripts/modals';
 import { initAnimations } from './scripts/animations';
 
-document.addEventListener('DOMContentLoaded', () => {
+function init() {
   // Initialize contact form with validation and submission handling
   initForm({
     formSelector: '.contact__form',
@@ -20,4 +20,10 @@ document.addEventListener('DOMContentLoaded', () => {
     threshold: 0.1,
     duration: 500,
   });
-});
+}
+
+if (document.readyState === 'loading') {
+  document.addEventListener('DOMContentLoaded', init);
+} else {
+  init();
+}

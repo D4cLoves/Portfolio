@@ -27,9 +27,9 @@ function setupDOM(): void {
         <textarea id="comment" class="contact__input contact__textarea"></textarea>
         <span class="contact__error"></span>
       </div>
-      <button type="submit" class="contact__submit">Отправить сообщение</button>
+      <button type="submit" class="contact__submit-btn">Отправить сообщение</button>
     </form>
-    <div class="contact__notification" role="alert"></div>
+    <div id="contact-status" class="contact__status" role="alert"></div>
   `;
 }
 
@@ -102,20 +102,20 @@ describe('notification.ts', () => {
       setFormState('loading');
       setFormState('idle');
 
-      const button = document.querySelector('.contact__submit') as HTMLButtonElement;
-      const notification = document.querySelector('.contact__notification')!;
+      const button = document.querySelector('.contact__submit-btn') as HTMLButtonElement;
+      const notification = document.getElementById('contact-status')!;
 
       expect(button.disabled).toBe(false);
       expect(notification.textContent).toBe('');
-      expect(notification.classList.contains('contact__notification--success')).toBe(false);
-      expect(notification.classList.contains('contact__notification--error')).toBe(false);
+      expect(notification.classList.contains('contact__status--success')).toBe(false);
+      expect(notification.classList.contains('contact__status--error')).toBe(false);
     });
 
     it('loading: disables button and shows loading text', () => {
       setFormState('loading');
 
-      const button = document.querySelector('.contact__submit') as HTMLButtonElement;
-      const notification = document.querySelector('.contact__notification')!;
+      const button = document.querySelector('.contact__submit-btn') as HTMLButtonElement;
+      const notification = document.getElementById('contact-status')!;
 
       expect(button.disabled).toBe(true);
       expect(button.classList.contains('contact__submit--loading')).toBe(true);
@@ -125,36 +125,36 @@ describe('notification.ts', () => {
     it('success: enables button and shows success message', () => {
       setFormState('success', 'Сообщение отправлено!');
 
-      const button = document.querySelector('.contact__submit') as HTMLButtonElement;
-      const notification = document.querySelector('.contact__notification')!;
+      const button = document.querySelector('.contact__submit-btn') as HTMLButtonElement;
+      const notification = document.getElementById('contact-status')!;
 
       expect(button.disabled).toBe(false);
       expect(notification.textContent).toBe('Сообщение отправлено!');
-      expect(notification.classList.contains('contact__notification--success')).toBe(true);
+      expect(notification.classList.contains('contact__status--success')).toBe(true);
     });
 
     it('success: uses default message when none provided', () => {
       setFormState('success');
 
-      const notification = document.querySelector('.contact__notification')!;
+      const notification = document.getElementById('contact-status')!;
       expect(notification.textContent).toBe('Сообщение отправлено!');
     });
 
     it('error: enables button and shows error message', () => {
       setFormState('error', 'Ошибка сети');
 
-      const button = document.querySelector('.contact__submit') as HTMLButtonElement;
-      const notification = document.querySelector('.contact__notification')!;
+      const button = document.querySelector('.contact__submit-btn') as HTMLButtonElement;
+      const notification = document.getElementById('contact-status')!;
 
       expect(button.disabled).toBe(false);
       expect(notification.textContent).toBe('Ошибка сети');
-      expect(notification.classList.contains('contact__notification--error')).toBe(true);
+      expect(notification.classList.contains('contact__status--error')).toBe(true);
     });
 
     it('error: uses default message when none provided', () => {
       setFormState('error');
 
-      const notification = document.querySelector('.contact__notification')!;
+      const notification = document.getElementById('contact-status')!;
       expect(notification.textContent).toBe('Произошла ошибка. Попробуйте ещё раз.');
     });
 
@@ -162,22 +162,22 @@ describe('notification.ts', () => {
       setFormState('success', 'Done');
       setFormState('loading');
 
-      const notification = document.querySelector('.contact__notification')!;
-      expect(notification.classList.contains('contact__notification--success')).toBe(false);
-      expect(notification.classList.contains('contact__notification--error')).toBe(false);
+      const notification = document.getElementById('contact-status')!;
+      expect(notification.classList.contains('contact__status--success')).toBe(false);
+      expect(notification.classList.contains('contact__status--error')).toBe(false);
     });
 
     it('transitions from loading to error correctly', () => {
       setFormState('loading');
       setFormState('error', 'Failed');
 
-      const button = document.querySelector('.contact__submit') as HTMLButtonElement;
-      const notification = document.querySelector('.contact__notification')!;
+      const button = document.querySelector('.contact__submit-btn') as HTMLButtonElement;
+      const notification = document.getElementById('contact-status')!;
 
       expect(button.disabled).toBe(false);
       expect(button.classList.contains('contact__submit--loading')).toBe(false);
       expect(notification.textContent).toBe('Failed');
-      expect(notification.classList.contains('contact__notification--error')).toBe(true);
+      expect(notification.classList.contains('contact__status--error')).toBe(true);
     });
   });
 });

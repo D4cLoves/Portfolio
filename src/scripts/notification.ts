@@ -34,8 +34,8 @@ const DEFAULT_CONFIG: NotificationConfig = {
 const CSS_CLASSES = {
   inputError: 'contact__input--error',
   submitLoading: 'contact__submit--loading',
-  notificationSuccess: 'contact__notification--success',
-  notificationError: 'contact__notification--error',
+  notificationSuccess: 'contact__status--success',
+  notificationError: 'contact__status--error',
 } as const;
 
 /**

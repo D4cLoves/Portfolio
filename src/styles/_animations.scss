@@ -20,7 +20,11 @@
 }
 
 // Revealed state — triggered by Intersection Observer adding .animate-in
-.animate-in {
+.hero.animate-in,
+.stack.animate-in,
+.projects.animate-in,
+.approach.animate-in,
+.contact.animate-in {
   opacity: 1;
   transform: translateY(0);
 }
