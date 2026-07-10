@@ -1,26 +1,25 @@
+@use 'variables' as *;
+
 // ==========================================================================
-// Animations — Entrance transitions, hover effects
-// All animations complete within 600ms
+// Animations — Entrance transitions and keyframes
 // ==========================================================================
 
-// --------------------------------------------------------------------------
-// Scroll-triggered entrance animations
-// Sections start hidden, revealed when .animate-in is added by JS
-// --------------------------------------------------------------------------
-
+// Scroll-triggered entrance base
 .hero,
+.experience,
 .stack,
 .projects,
 .approach,
 .contact {
   opacity: 0;
-  transform: translateY(20px);
-  transition: opacity var(--transition-normal), transform var(--transition-normal);
+  transform: translateY(24px);
+  transition: opacity var(--t-slow), transform var(--t-slow);
   will-change: opacity, transform;
 }
 
-// Revealed state — triggered by Intersection Observer adding .animate-in
+// Revealed state (High specificity to ensure override)
 .hero.animate-in,
+.experience.animate-in,
 .stack.animate-in,
 .projects.animate-in,
 .approach.animate-in,
@@ -29,25 +28,22 @@
   transform: translateY(0);
 }
 
-// --------------------------------------------------------------------------
 // Staggered children animation
-// Children within an animated section get incremental delays
-// --------------------------------------------------------------------------
-
 .animate-in {
+  .experience__entry,
   .stack__group,
   .project-card,
   .approach__card,
-  .contact__field,
-  .contact__links {
+  .contact__info,
+  .contact__form-wrapper {
     opacity: 0;
-    transform: translateY(12px);
-    animation: stagger-in var(--transition-normal) forwards;
+    transform: translateY(16px);
+    animation: stagger-in var(--t-slow) forwards;
   }
 
   @for $i from 1 through 10 {
     :nth-child(#{$i}) {
-      animation-delay: #{$i * 60}ms;
+      animation-delay: #{$i * 80}ms;
     }
   }
 }
@@ -55,7 +51,7 @@
 @keyframes stagger-in {
   from {
     opacity: 0;
-    transform: translateY(12px);
+    transform: translateY(16px);
   }
   to {
     opacity: 1;
@@ -63,17 +59,24 @@
   }
 }
 
-// Hover effects
-.nav__link {
-  transition: color var(--transition-fast);
-
-  &:hover {
-    color: var(--color-accent-hover);
+// Keyframes
+@keyframes cursor-blink {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
   }
 }
 
-button,
-[role='button'] {
-  transition: transform var(--transition-fast), box-shadow var(--transition-fast),
-    background-color var(--transition-fast);
+@keyframes scroll-down {
+  0% {
+    transform: translateY(-100%);
+  }
+  50% {
+    transform: translateY(0);
+  }
+  100% {
+    transform: translateY(100%);
+  }
 }

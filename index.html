@@ -1,47 +1,97 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="ru">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content="Владислав Трубников — Software Engineer & Fullstack Developer" />
-    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <title>Владислав Трубников — Fullstack Developer</title>
+    <meta name="description" content="Портфолио Fullstack Developer & Software Engineer. Решаю задачи бизнеса через End-to-End разработку." />
+    <!-- Fonts: Inter (Body) & JetBrains Mono (Code/Accents) -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <title>Владислав Трубников — Fullstack Developer</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;800&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
   </head>
   <body class="page-body">
+    <!-- Grain texture overlay -->
+    <div class="grain-overlay"></div>
+
     <div id="app-content">
+      <!-- HEADER -->
       <header class="header">
-        <nav class="nav container">
-          <a href="#hero" class="nav__logo">Vladislav Trubnikov</a>
-          <ul class="nav__list">
-            <li class="nav__item"><a href="#about" class="nav__link">Обо мне</a></li>
-            <li class="nav__item"><a href="#stack" class="nav__link">Стек</a></li>
-            <li class="nav__item"><a href="#projects" class="nav__link">Проекты</a></li>
-            <li class="nav__item"><a href="#approach" class="nav__link">Подход</a></li>
-            <li class="nav__item"><a href="#contact" class="nav__link">Контакты</a></li>
-          </ul>
-        </nav>
+        <div class="nav__container">
+          <a href="#" class="nav__logo mono"><span class="nav__logo-accent">~/</span>v.trubnikov<span class="cursor-blink">_</span></a>
+          <nav class="nav">
+            <ul class="nav__list">
+              <li class="nav__item"><a href="#experience" class="nav__link">Опыт</a></li>
+              <li class="nav__item"><a href="#stack" class="nav__link">Стек</a></li>
+              <li class="nav__item"><a href="#projects" class="nav__link">Проекты</a></li>
+              <li class="nav__item"><a href="#approach" class="nav__link">Подход</a></li>
+              <li class="nav__item"><a href="#contact" class="nav__link">Контакты</a></li>
+            </ul>
+          </nav>
+        </div>
       </header>
 
       <main class="main">
-        <!-- HERO & ABOUT -->
+        <!-- HERO -->
         <section id="hero" class="hero section">
-          <div class="hero__container container">
+          <div class="container hero__container">
             <div class="hero__content">
-              <h1 class="hero__title">Владислав Трубников <span class="hero__title-accent">| Fullstack Developer</span></h1>
-              <p class="hero__subtitle">Проектирую и создаю веб-сервисы от архитектуры базы данных до фичи в продакшене.</p>
-              
-              <div class="hero__about">
-                <p>Общий стаж программирования — 4 года (активно пишу код с 14 лет). Имею опыт коммерческой разработки в продуктовой команде. Специализируюсь на создании отказоустойчивых веб-приложений, проектировании REST API и оптимизации баз данных.</p>
-                <p>Мой подход — заходить в задачу целиком (End-to-End): от сбора требований бизнеса до контейнеризации и деплоя.</p>
+              <div class="hero__badge mono">&gt; SYSTEM.INIT()</div>
+              <h1 class="hero__title">Владислав Трубников</h1>
+              <h2 class="hero__subtitle mono">Fullstack Software Engineer</h2>
+              <p class="hero__about">
+                Архитектура, бизнес-логика и интерфейсы. <br>
+                Проектирую и реализую <b>End-to-End</b> решения, беря на себя полную ответственность за результат: от базы данных до клиентского рендеринга.
+              </p>
+              <div class="hero__actions">
+                <a href="#projects" class="btn btn--primary">Смотреть проекты</a>
+                <a href="#contact" class="btn btn--outline">Связаться</a>
               </div>
             </div>
             <div class="hero__visual">
-              <div class="hero__image-wrapper">
-                <img src="/src/assets/photo_2026-05-11_15-49-07.jpg" alt="Владислав Трубников" class="hero__image" />
-                <div class="hero__image-glow"></div>
+              <div class="hero__photo-wrapper">
+                <div class="hero__photo-decoration hero__photo-decoration--tl"></div>
+                <div class="hero__photo-decoration hero__photo-decoration--br"></div>
+                <img src="/src/assets/photo_2026-05-11_15-49-07.jpg" alt="Владислав Трубников" class="hero__photo" />
+              </div>
+            </div>
+          </div>
+          <div class="hero__scroll-indicator">
+            <div class="hero__scroll-line"></div>
+          </div>
+        </section>
+
+        <!-- EXPERIENCE (COMMERCIAL) -->
+        <section id="experience" class="experience section">
+          <div class="container">
+            <header class="section__header">
+              <span class="section__number mono">01</span>
+              <h2 class="section__title">Коммерческий опыт</h2>
+            </header>
+
+            <div class="experience__entry">
+              <div class="experience__meta">
+                <h3 class="experience__company">LookMy</h3>
+                <div class="experience__role mono">Fullstack Developer</div>
+                <div class="experience__period">Август 2024 — Настоящее время</div>
+                <div class="experience__tags">
+                  <span class="tag tag--accent">Symfony</span>
+                  <span class="tag tag--accent">PostgreSQL</span>
+                  <span class="tag tag--accent">Vue.js</span>
+                  <span class="tag tag--accent">Docker</span>
+                </div>
+              </div>
+              <div class="experience__details">
+                <p class="experience__summary">
+                  Проектирование архитектуры и реализация бизнес-требований на всех слоях приложения. Фокус на Clean Architecture и DDD.
+                </p>
+                <ul class="experience__achievements">
+                  <li>Спроектировал и реализовал архитектуру на базе <b>DDD (Domain-Driven Design)</b>, разделив бизнес-логику от инфраструктуры.</li>
+                  <li>Разработал интеграции с платежной системой <b>YooKassa</b>, обеспечив надежную обработку транзакций и вебхуков.</li>
+                  <li>Реализовал систему уведомлений для пользователей, включая email-рассылки и in-app оповещения.</li>
+                  <li>Создал парсер данных с маркетплейса <b>Wildberries</b> для автоматизации сбора информации о товарах.</li>
+                  <li>Настроил CI/CD пайплайны и докеризацию для бесшовного деплоя.</li>
+                </ul>
               </div>
             </div>
           </div>
@@ -49,103 +99,92 @@
 
         <!-- TECH STACK -->
         <section id="stack" class="stack section">
-          <div class="stack__container container">
-            <h2 class="section__title">Технический стек</h2>
+          <div class="container">
+            <header class="section__header">
+              <span class="section__number mono">02</span>
+              <h2 class="section__title">Технический Стек</h2>
+            </header>
+
             <div class="stack__grid">
-              <div class="stack__group stack__group--core">
-                <h3 class="stack__group-title">Core Expert</h3>
+              <div class="stack__group">
+                <h3 class="stack__group-title mono">// Core Expert</h3>
                 <div class="stack__tags">
-                  <span class="stack__tag">C#</span>
-                  <span class="stack__tag">ASP.NET Core</span>
-                  <span class="stack__tag">React</span>
-                  <span class="stack__tag">TypeScript</span>
-                  <span class="stack__tag">JavaScript</span>
-                  <span class="stack__tag">PostgreSQL</span>
-                  <span class="stack__tag">Entity Framework (EF Core)</span>
-                  <span class="stack__tag">Docker</span>
-                  <span class="stack__tag">Docker-compose</span>
-                  <span class="stack__tag">LINQ</span>
+                  <span class="tag tag--core">PHP 8+</span>
+                  <span class="tag tag--core">Symfony</span>
+                  <span class="tag tag--core">PostgreSQL</span>
+                  <span class="tag tag--core">TypeScript</span>
+                  <span class="tag tag--core">Vue.js / React</span>
                 </div>
               </div>
-              <div class="stack__group stack__group--ecosystem">
-                <h3 class="stack__group-title">Ecosystem & Tools</h3>
+              <div class="stack__group">
+                <h3 class="stack__group-title mono">// Ecosystem & Tools</h3>
                 <div class="stack__tags">
-                  <span class="stack__tag stack__tag--secondary">Node.js</span>
-                  <span class="stack__tag stack__tag--secondary">Redis</span>
-                  <span class="stack__tag stack__tag--secondary">Web API</span>
-                  <span class="stack__tag stack__tag--secondary">ASP.NET MVC</span>
-                  <span class="stack__tag stack__tag--secondary">JWT</span>
-                  <span class="stack__tag stack__tag--secondary">Identity</span>
-                  <span class="stack__tag stack__tag--secondary">Git</span>
-                  <span class="stack__tag stack__tag--secondary">REST API</span>
-                  <span class="stack__tag stack__tag--secondary">LLM в разработке</span>
-                  <span class="stack__tag stack__tag--secondary">HTML5/CSS3</span>
+                  <span class="tag tag--ecosystem">Docker</span>
+                  <span class="tag tag--ecosystem">Redis</span>
+                  <span class="tag tag--ecosystem">RabbitMQ</span>
+                  <span class="tag tag--ecosystem">Git / CI/CD</span>
+                  <span class="tag tag--ecosystem">Linux</span>
+                  <span class="tag tag--ecosystem">Nginx</span>
+                  <span class="tag tag--ecosystem">Clean Architecture</span>
+                  <span class="tag tag--ecosystem">REST API</span>
                 </div>
               </div>
             </div>
           </div>
         </section>
 
-        <!-- PROJECTS -->
+        <!-- PET PROJECTS -->
         <section id="projects" class="projects section">
-          <div class="projects__container container">
-            <h2 class="section__title">Проекты</h2>
+          <div class="container">
+            <header class="section__header">
+              <span class="section__number mono">03</span>
+              <h2 class="section__title">Пет-проекты</h2>
+            </header>
+
             <div class="projects__grid">
-              <!-- Cards are populated by JS or hardcoded here and intercepted -->
-              <article class="project-card" data-project-id="lookmy" tabindex="0">
-                <div class="project-card__header">
-                  <span class="project-card__category">Коммерческий опыт</span>
+              <!-- Project 1 -->
+              <article class="project-card" tabindex="0" role="button" aria-label="Открыть проект Backend / Poll System" data-project-id="poll-system">
+                <div class="project-card__bg-number mono">01</div>
+                <div class="project-card__content">
+                  <h3 class="project-card__title">Poll System</h3>
+                  <p class="project-card__desc">Система создания и прохождения опросов с развитой ролевой моделью и REST API.</p>
+                  <div class="project-card__tags">
+                    <span class="tag tag--minimal">PHP 8.2</span>
+                    <span class="tag tag--minimal">Symfony 7</span>
+                    <span class="tag tag--minimal">PostgreSQL</span>
+                  </div>
+                  <div class="project-card__action mono">Смотреть детали -></div>
                 </div>
-                <h3 class="project-card__title">LookMy</h3>
-                <p class="project-card__desc">Платформа-конструктор сайтов. Развитие конструктора, рефакторинг и закрытие задач уровня End-to-End.</p>
-                <div class="project-card__tags">
-                  <span class="project-card__tag">C#</span>
-                  <span class="project-card__tag">React</span>
-                  <span class="project-card__tag">PostgreSQL</span>
-                </div>
-                <button class="project-card__btn" aria-label="Подробнее о проекте LookMy">Подробнее &rarr;</button>
               </article>
 
-              <article class="project-card" data-project-id="momentum" tabindex="0">
-                <div class="project-card__header">
-                  <span class="project-card__category">Pet-project</span>
+              <!-- Project 2 -->
+              <article class="project-card" tabindex="0" role="button" aria-label="Открыть проект EGE Simulator" data-project-id="ege-simulator">
+                <div class="project-card__bg-number mono">02</div>
+                <div class="project-card__content">
+                  <h3 class="project-card__title">EGE Simulator</h3>
+                  <p class="project-card__desc">Игровая платформа для подготовки к ЕГЭ. Интерактивные тесты и система рейтингов.</p>
+                  <div class="project-card__tags">
+                    <span class="tag tag--minimal">React</span>
+                    <span class="tag tag--minimal">Redux Toolkit</span>
+                    <span class="tag tag--minimal">SCSS</span>
+                  </div>
+                  <div class="project-card__action mono">Смотреть детали -></div>
                 </div>
-                <h3 class="project-card__title">Momentum</h3>
-                <p class="project-card__desc">Платформа для трекинга фокуса и продуктивности с микросервисной архитектурой.</p>
-                <div class="project-card__tags">
-                  <span class="project-card__tag">React 19</span>
-                  <span class="project-card__tag">ASP.NET Core</span>
-                  <span class="project-card__tag">Docker</span>
-                </div>
-                <button class="project-card__btn" aria-label="Подробнее о проекте Momentum">Подробнее &rarr;</button>
               </article>
 
-              <article class="project-card" data-project-id="medicare" tabindex="0">
-                <div class="project-card__header">
-                  <span class="project-card__category">Pet-project</span>
+              <!-- Project 3 -->
+              <article class="project-card" tabindex="0" role="button" aria-label="Открыть проект Fullstack / Online Store" data-project-id="online-store">
+                <div class="project-card__bg-number mono">03</div>
+                <div class="project-card__content">
+                  <h3 class="project-card__title">E-Commerce Store</h3>
+                  <p class="project-card__desc">Полноценный интернет-магазин с каталогом, корзиной и панелью администратора.</p>
+                  <div class="project-card__tags">
+                    <span class="tag tag--minimal">Vue 3</span>
+                    <span class="tag tag--minimal">Vuex</span>
+                    <span class="tag tag--minimal">Tailwind</span>
+                  </div>
+                  <div class="project-card__action mono">Смотреть детали -></div>
                 </div>
-                <h3 class="project-card__title">MediCare Management System</h3>
-                <p class="project-card__desc">Медицинская учётная система, демонстрирующая лучшие практики enterprise-архитектуры.</p>
-                <div class="project-card__tags">
-                  <span class="project-card__tag">DDD</span>
-                  <span class="project-card__tag">ASP.NET Core 9</span>
-                  <span class="project-card__tag">EF Core</span>
-                </div>
-                <button class="project-card__btn" aria-label="Подробнее о проекте MediCare">Подробнее &rarr;</button>
-              </article>
-
-              <article class="project-card" data-project-id="sakurachess" tabindex="0">
-                <div class="project-card__header">
-                  <span class="project-card__category">Pet-project</span>
-                </div>
-                <h3 class="project-card__title">Sakura Chess</h3>
-                <p class="project-card__desc">Десктопное шахматное приложение со встроенным искусственным интеллектом.</p>
-                <div class="project-card__tags">
-                  <span class="project-card__tag">WPF</span>
-                  <span class="project-card__tag">.NET 8</span>
-                  <span class="project-card__tag">Lc0 Engine</span>
-                </div>
-                <button class="project-card__btn" aria-label="Подробнее о проекте Sakura Chess">Подробнее &rarr;</button>
               </article>
             </div>
           </div>
@@ -153,29 +192,27 @@
 
         <!-- APPROACH -->
         <section id="approach" class="approach section">
-          <div class="approach__container container">
-            <h2 class="section__title">Инженерный подход</h2>
+          <div class="container">
+            <header class="section__header">
+              <span class="section__number mono">04</span>
+              <h2 class="section__title">Инженерный подход</h2>
+            </header>
+
             <div class="approach__grid">
               <div class="approach__card">
-                <div class="approach__card-icon">
-                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
-                </div>
-                <h3 class="approach__card-title">Бизнес-ориентированность</h3>
-                <p class="approach__card-text">Сначала пойму, какую проблему бизнеса решает фича, и только потом пишу код. Не трачу время на код ради кода.</p>
+                <div class="approach__icon mono">[]</div>
+                <h3 class="approach__title">End-to-End Delivery</h3>
+                <p class="approach__desc">Не просто пишу код, а доставляю фичу целиком. От проектирования схемы БД до реализации отзывчивого UI на клиенте.</p>
               </div>
               <div class="approach__card">
-                <div class="approach__card-icon">
-                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
-                </div>
-                <h3 class="approach__card-title">Скорость доставки</h3>
-                <p class="approach__card-text">Умею быстро выдавать работающий production-ready минимум (MVP) вместо бесконечного проектирования мертвой идеальной архитектуры.</p>
+                <div class="approach__icon mono">{}</div>
+                <h3 class="approach__title">Clean Architecture</h3>
+                <p class="approach__desc">Изолирую бизнес-правила от инфраструктуры. Код легко тестировать, поддерживать и масштабировать.</p>
               </div>
               <div class="approach__card">
-                <div class="approach__card-icon">
-                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
-                </div>
-                <h3 class="approach__card-title">AI как ассистент</h3>
-                <p class="approach__card-text">Активно использую LLM-инструменты для автоматизации рутины (генерация тестов, скелеты кода, быстрый рефакторинг), что ускоряет мою разработку в 2 раза. При этом архитектурные решения и ответственность за логику всегда остаются на мне.</p>
+                <div class="approach__icon mono">()</div>
+                <h3 class="approach__title">Product Mindset</h3>
+                <p class="approach__desc">Всегда думаю о том, какую ценность несет фича для пользователя и бизнеса, а не просто закрываю тикеты.</p>
               </div>
             </div>
           </div>
@@ -183,57 +220,54 @@
 
         <!-- CONTACT -->
         <section id="contact" class="contact section">
-          <div class="contact__container container">
-            <div class="contact__content">
-              <h2 class="section__title">Связаться со мной</h2>
-              <p class="contact__subtitle">Готов обсудить задачи, архитектуру и присоединиться к сильной команде.</p>
-              <div class="contact__links">
-                <a href="https://t.me/D4cLoves" target="_blank" rel="noopener noreferrer" class="contact__link-btn">
-                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 2L11 13M22 2l-7 20-4-9-9-4 20-7z"/></svg>
-                  Telegram: @D4cLoves
-                </a>
-                <a href="https://github.com/D4cLoves" target="_blank" rel="noopener noreferrer" class="contact__link-btn">
-                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
-                  GitHub: D4cLoves
-                </a>
-                <a href="mailto:d4c_loves@mail.ru" class="contact__link-btn">
-                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
-                  d4c_loves@mail.ru
-                </a>
-              </div>
+          <div class="container contact__container">
+            <div class="contact__info">
+              <header class="section__header">
+                <span class="section__number mono">05</span>
+                <h2 class="section__title">Контакты</h2>
+              </header>
+              <p class="contact__desc">Открыт к обсуждению интересных задач и предложений. Свяжитесь со мной любым удобным способом.</p>
+              
+              <ul class="contact__links">
+                <li>
+                  <a href="https://t.me/your_telegram" target="_blank" rel="noopener noreferrer" class="contact__link">
+                    <span class="mono contact__link-label">TG:</span> @your_telegram
+                  </a>
+                </li>
+                <li>
+                  <a href="https://github.com/D4cLoves" target="_blank" rel="noopener noreferrer" class="contact__link">
+                    <span class="mono contact__link-label">GH:</span> github.com/D4cLoves
+                  </a>
+                </li>
+                <li>
+                  <a href="mailto:vlad.trubnikov@example.com" class="contact__link">
+                    <span class="mono contact__link-label">EM:</span> mail@example.com
+                  </a>
+                </li>
+              </ul>
             </div>
-            
-            <form id="contact-form" class="contact__form" action="/api/contact" method="POST" novalidate>
-              <div class="contact__field">
-                <label for="name" class="contact__label">Имя</label>
-                <input type="text" id="name" name="name" class="contact__input" placeholder="Иван Иванов" required aria-required="true" />
-                <span class="contact__error" aria-live="polite"></span>
-              </div>
-              <div class="contact__field">
-                <label for="email" class="contact__label">Email</label>
-                <input type="email" id="email" name="email" class="contact__input" placeholder="ivan@example.com" required aria-required="true" />
-                <span class="contact__error" aria-live="polite"></span>
-              </div>
-              <div class="contact__field">
-                <label for="comment" class="contact__label">Сообщение</label>
-                <textarea id="comment" name="comment" class="contact__input contact__textarea" placeholder="Расскажите о вашем проекте..." rows="4" required aria-required="true"></textarea>
-                <span class="contact__error" aria-live="polite"></span>
-              </div>
-              <button type="submit" class="contact__submit-btn">
-                <span class="contact__submit-text">Отправить сообщение</span>
-                <span class="contact__submit-loader"></span>
-              </button>
-              <div id="contact-status" class="contact__status" role="alert" aria-live="polite"></div>
-            </form>
+
+            <div class="contact__form-wrapper">
+              <form id="contact-form" class="contact__form" action="/api/contact" method="POST" novalidate>
+                <div class="contact__field">
+                  <input type="text" id="name" name="name" class="contact__input" placeholder="Имя" required aria-required="true" />
+                  <span class="contact__error" aria-live="polite"></span>
+                </div>
+                <div class="contact__field">
+                  <input type="email" id="email" name="email" class="contact__input" placeholder="Email" required aria-required="true" />
+                  <span class="contact__error" aria-live="polite"></span>
+                </div>
+                <div class="contact__field">
+                  <textarea id="comment" name="comment" class="contact__input contact__textarea" placeholder="Расскажите о вашем проекте..." rows="4" required aria-required="true"></textarea>
+                  <span class="contact__error" aria-live="polite"></span>
+                </div>
+                <button type="submit" class="contact__submit-btn btn btn--primary">Отправить сообщение</button>
+              </form>
+              <div id="contact-status" class="contact__status" role="alert"></div>
+            </div>
           </div>
         </section>
       </main>
-
-      <footer class="footer">
-        <div class="footer__container container">
-          <p>&copy; 2026 Владислав Трубников. Fullstack Developer.</p>
-        </div>
-      </footer>
     </div>
 
     <!-- MODAL CONTAINER -->

@@ -4,114 +4,140 @@
   min-height: 100vh;
   display: flex;
   align-items: center;
-  padding-top: var(--space-16); // space for fixed header
-  
+  position: relative;
+  padding-top: var(--sp-16);
+
   &__container {
-    display: flex;
+    display: grid;
+    grid-template-columns: 1.2fr 0.8fr;
+    gap: var(--sp-12);
     align-items: center;
-    justify-content: space-between;
-    gap: var(--space-8);
-    
-    @media (max-width: 992px) {
-      flex-direction: column-reverse;
+
+    @media (max-width: 768px) {
+      grid-template-columns: 1fr;
+      gap: var(--sp-10);
       text-align: center;
     }
   }
-  
-  &__content {
-    flex: 1;
-    max-width: 700px;
-  }
-  
-  &__title {
-    font-size: clamp(2.5rem, 5vw, 4rem);
-    font-weight: 700;
-    line-height: 1.1;
-    margin-bottom: var(--space-4);
-    color: var(--color-text);
-  }
-  
-  &__title-accent {
-    display: block;
+
+  &__badge {
+    display: inline-block;
     color: var(--color-accent);
-    font-size: clamp(1.5rem, 3vw, 2.5rem);
-    margin-top: var(--space-2);
-    opacity: 0.9;
+    font-size: 0.875rem;
+    margin-bottom: var(--sp-6);
   }
-  
+
+  &__title {
+    margin-bottom: var(--sp-2);
+  }
+
   &__subtitle {
-    font-size: 1.25rem;
     color: var(--color-text-muted);
-    margin-bottom: var(--space-6);
-    max-width: 600px;
-    
-    @media (max-width: 992px) {
-      margin-left: auto;
-      margin-right: auto;
-    }
+    font-size: clamp(1rem, 2vw, 1.25rem);
+    margin-bottom: var(--sp-6);
   }
-  
+
   &__about {
-    p {
-      color: var(--color-text-dark);
-      margin-bottom: var(--space-3);
-      line-height: 1.6;
-      font-size: 1.125rem;
+    color: var(--color-text-muted);
+    font-size: 1.125rem;
+    max-width: 500px;
+    margin-bottom: var(--sp-8);
+
+    @media (max-width: 768px) {
+      margin-inline: auto;
+    }
+    
+    b {
+      color: var(--color-text);
     }
   }
-  
-  &__visual {
-    flex: 1;
+
+  &__actions {
     display: flex;
-    justify-content: center;
-    align-items: center;
-    position: relative;
+    gap: var(--sp-4);
+
+    @media (max-width: 768px) {
+      justify-content: center;
+    }
   }
-  
-  &__image-wrapper {
+
+  &__visual {
+    position: relative;
+    display: flex;
+    justify-content: flex-end;
+    
+    @media (max-width: 768px) {
+      justify-content: center;
+    }
+  }
+
+  &__photo-wrapper {
     position: relative;
     width: 320px;
     height: 320px;
-    border-radius: 50%;
-    
-    @media (max-width: 992px) {
-      width: 250px;
-      height: 250px;
+
+    @media (max-width: 768px) {
+      width: 260px;
+      height: 260px;
     }
   }
-  
-  &__image {
+
+  &__photo {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    border-radius: 50%;
-    border: 4px solid var(--color-bg-surface);
-    position: relative;
-    z-index: 2;
-    filter: grayscale(20%);
-    transition: filter var(--transition-normal);
-    
+    filter: grayscale(80%) contrast(1.1);
+    border: 1px solid var(--color-border);
+    transition: filter var(--t-slow), border-color var(--t-slow);
+
     &:hover {
-      filter: grayscale(0%);
+      filter: grayscale(0%) contrast(1);
+      border-color: var(--color-accent);
     }
   }
-  
-  &__image-glow {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 110%;
-    height: 110%;
-    border-radius: 50%;
-    background: radial-gradient(circle, var(--color-accent-glow) 0%, rgba(0,0,0,0) 70%);
-    z-index: 1;
-    filter: blur(20px);
-    animation: pulse 4s infinite alternate;
-  }
-}
 
-@keyframes pulse {
-  0% { transform: translate(-50%, -50%) scale(0.95); opacity: 0.6; }
-  100% { transform: translate(-50%, -50%) scale(1.05); opacity: 1; }
+  &__photo-decoration {
+    position: absolute;
+    width: 24px;
+    height: 24px;
+    border: 2px solid var(--color-accent);
+    z-index: 2;
+    pointer-events: none;
+
+    &--tl {
+      top: -8px;
+      left: -8px;
+      border-right: none;
+      border-bottom: none;
+    }
+
+    &--br {
+      bottom: -8px;
+      right: -8px;
+      border-left: none;
+      border-top: none;
+    }
+  }
+
+  &__scroll-indicator {
+    position: absolute;
+    bottom: var(--sp-10);
+    left: 50%;
+    transform: translateX(-50%);
+    width: 1px;
+    height: 60px;
+    background-color: var(--color-border);
+    overflow: hidden;
+
+    @media (max-width: 768px) {
+      display: none;
+    }
+  }
+
+  &__scroll-line {
+    width: 100%;
+    height: 50%;
+    background-color: var(--color-accent);
+    animation: scroll-down 2s infinite var(--ease-out);
+  }
 }

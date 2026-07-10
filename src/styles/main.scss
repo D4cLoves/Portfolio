@@ -1,23 +1,22 @@
 // ==========================================================================
-// Main SCSS entry point — imports all partials in dependency order
+// Main SCSS Entry Point
 // ==========================================================================
 
-// Foundation
+// 1. Configuration and Base
 @use 'variables';
 @use 'reset';
 @use 'typography';
-
-// Layout
 @use 'layout';
 
-// Components
+// 2. Components / Sections
 @use 'navigation';
 @use 'hero';
+@use 'experience';
 @use 'stack';
+@use 'projects';
 @use 'approach';
-@use 'cases';
 @use 'contact';
 @use 'modals';
 
-// Animations (loaded last to allow overrides)
+// 3. Animations (Loaded last to ensure class overrides)
 @use 'animations';

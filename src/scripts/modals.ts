@@ -3,8 +3,7 @@ export interface IProjectCase {
   title: string;
   category: 'commercial' | 'pet';
   stack: string[];
-  commercialPeriod?: string;
-  role?: string;
+  description: string;
   achievements: string[];
   architectureFeatures?: string[];
   githubUrl?: string;
@@ -12,61 +11,56 @@ export interface IProjectCase {
 }
 
 const projectsData: Record<string, IProjectCase> = {
-  lookmy: {
-    id: 'lookmy',
-    title: 'LookMy',
-    category: 'commercial',
-    stack: ['C#', 'ASP.NET Core', 'React', 'TypeScript', 'PostgreSQL', 'Git'],
-    commercialPeriod: 'Октябрь 2024 — Сентябрь 2025 (1 год)',
-    role: 'Fullstack-разработчик',
+  'poll-system': {
+    id: 'poll-system',
+    title: 'Poll System',
+    category: 'pet',
+    stack: ['PHP 8.2', 'Symfony 7', 'PostgreSQL', 'Redis', 'Docker'],
+    description: 'Масштабируемая система создания и прохождения опросов с развитой ролевой моделью и REST API.',
     achievements: [
-      'Разработал и интегрировал модуль полнотекстового поиска по заголовкам и содержимому страниц на бэкенде с проектированием оптимальных индексов в PostgreSQL.',
-      'Провел глубокий редизайн и унификацию 5 устаревших легаси UI-модулей конструктора, переведя их на современную связку React + TypeScript под единые стандарты интерфейса.',
-      'Локализовал и устранил критический баг в визуальном редакторе, решив проблему некорректного реактивного обновления и асинхронной загрузки данных без перезагрузки страницы.',
-      'Самостоятельно вел продуктовые фичи по методологии End-to-End: от обсуждения бизнес-требований и написания API до верстки, тестирования и релиза.'
+      'Спроектировал реляционную схему базы данных для хранения сложных зависимостей между вопросами.',
+      'Реализовал систему кэширования результатов опросов с использованием Redis для снижения нагрузки.',
+      'Настроил CI/CD для автоматического линтинга и прогона PHPUnit тестов.'
     ],
-  },
-  momentum: {
-    id: 'momentum',
-    title: 'Momentum',
-    category: 'pet',
-    stack: ['React 19', 'TypeScript', 'ASP.NET Core', 'PostgreSQL', 'Redis', 'Docker Compose', 'JWT'],
-    achievements: [],
     architectureFeatures: [
-      'Проект построен по принципам Clean Architecture с разделением на слои: Domain, Application, Infrastructure и Shared Kernel.',
-      'Реализована отказоустойчивая JWT-авторизация и сложная бэкенд-логика ежедневных стриков и распределения времени.',
-      'Покрыл ключевую бизнес-логику и эндпоинты слоем интеграционных тестов (Integration Tests) для гарантии стабильности системы.',
-      'Инфраструктура полностью контейнеризирована через Docker Compose для быстрого локального развертывания.'
+      'Использование Symfony Messenger для асинхронной обработки тяжелых задач (например, генерация отчетов).',
+      'Строгое соблюдение SOLID и принципов чистой архитектуры (выделение Use Cases).'
     ],
-    githubUrl: 'https://github.com/D4cLoves',
+    githubUrl: 'https://github.com/D4cLoves'
   },
-  medicare: {
-    id: 'medicare',
-    title: 'MediCare Management System',
+  'ege-simulator': {
+    id: 'ege-simulator',
+    title: 'EGE Simulator',
     category: 'pet',
-    stack: ['ASP.NET Core 9', 'React 19', 'TypeScript', 'EF Core', 'SQLite'],
-    achievements: [],
-    architectureFeatures: [
-      'Применение паттернов Domain-Driven Design (DDD). Использование Domain Models и Value Objects для изоляции бизнес-логики от инфраструктуры.',
-      'Реализовано чистое REST API, полностью задокументированное через Swagger.',
-      'Разработано отзывчивое клиентское приложение на React с жесткой типизацией на TypeScript.',
-      'Настроена автоматическая генерация тестовых данных (Data Seeding) для быстрой демонстрации работы приложения.'
+    stack: ['React', 'Redux Toolkit', 'TypeScript', 'SCSS'],
+    description: 'Игровая платформа для подготовки к ЕГЭ. Интерактивные тесты, таймеры и система рейтингов.',
+    achievements: [
+      'Разработал сложный UI с множеством интерактивных элементов (drag-and-drop, таймеры, графики прогресса).',
+      'Оптимизировал рендеринг списков с помощью мемоизации, что повысило производительность на слабых устройствах.',
+      'Внедрил глобальное управление состоянием через Redux Toolkit.'
     ],
-    githubUrl: 'https://github.com/D4cLoves',
+    architectureFeatures: [
+      'Feature-Sliced Design (FSD) для организации структуры проекта.',
+      'Кастомные хуки для инкапсуляции сложной логики (например, хук таймера экзамена).'
+    ],
+    githubUrl: 'https://github.com/D4cLoves'
   },
-  sakurachess: {
-    id: 'sakurachess',
-    title: 'Sakura Chess',
+  'online-store': {
+    id: 'online-store',
+    title: 'E-Commerce Store',
     category: 'pet',
-    stack: ['C#', '.NET 8', 'WPF', 'Material Design', 'Lc0 Engine'],
-    achievements: [],
-    architectureFeatures: [
-      'Разработка десктопного интерфейса на базе WPF с применением паттерна MVVM и стилизации под Material Design.',
-      'Интеграция нейросетевого шахматного движка Lc0 через CLI и управление асинхронными потоками данных в реальном времени.',
-      'Реализована полноценная шахматная логика, поддержка режимов контроля времени (таймеры) и навигация по истории ходов.',
-      'Проект упакован в полноценный установщик (Installer) для операционной системы Windows.'
+    stack: ['Vue 3', 'Vuex', 'TailwindCSS', 'Node.js'],
+    description: 'Полноценный интернет-магазин с каталогом, корзиной и панелью администратора.',
+    achievements: [
+      'Реализовал корзину покупок с синхронизацией состояния между вкладками через LocalStorage.',
+      'Разработал панель администратора для управления товарами и заказами.',
+      'Интегрировал заглушку платежного шлюза для симуляции транзакций.'
     ],
-    githubUrl: 'https://github.com/D4cLoves',
+    architectureFeatures: [
+      'Использование Vue Composition API для переиспользования логики фильтрации товаров.',
+      'Ленивая загрузка (Lazy Loading) компонентов и изображений для ускорения TTI.'
+    ],
+    githubUrl: 'https://github.com/D4cLoves'
   }
 };
 
@@ -88,44 +82,41 @@ export function initModals() {
 
     previouslyFocusedElement = document.activeElement as HTMLElement;
 
-    // Build content
+    // Build content using new BEM classes
     let contentHtml = `
-      <div class="portfolio-modal__header">
-        <h3 class="portfolio-modal__title">${data.title}</h3>
-        ${data.role ? `<p class="portfolio-modal__subtitle">${data.role} | ${data.commercialPeriod}</p>` : ''}
+      <h3 class="modal-case__title">${data.title}</h3>
+      <div class="modal-case__category">${data.category === 'pet' ? 'Пет-проект' : 'Коммерческий проект'}</div>
+      
+      <div class="modal-case__tags">
+        ${data.stack.map(tech => `<span class="tag tag--accent">${tech}</span>`).join('')}
       </div>
-      <div class="portfolio-modal__stack">
-        ${data.stack.map(tech => `<span class="portfolio-modal__tag">${tech}</span>`).join('')}
-      </div>
+
+      <p class="modal-case__desc">${data.description}</p>
     `;
 
-    if (data.achievements) {
+    if (data.achievements && data.achievements.length > 0) {
       contentHtml += `
-        <div class="portfolio-modal__section">
-          <h4 class="portfolio-modal__section-title">Оцифрованные задачи и достижения:</h4>
-          <ul class="portfolio-modal__list">
-            ${data.achievements.map(item => `<li class="portfolio-modal__list-item">${item}</li>`).join('')}
-          </ul>
-        </div>
+        <h4 class="modal-case__section-title">Ключевые достижения:</h4>
+        <ul class="modal-case__achievements">
+          ${data.achievements.map(item => `<li>${item}</li>`).join('')}
+        </ul>
       `;
     }
 
-    if (data.architectureFeatures) {
+    if (data.architectureFeatures && data.architectureFeatures.length > 0) {
       contentHtml += `
-        <div class="portfolio-modal__section">
-          <h4 class="portfolio-modal__section-title">Архитектурные особенности:</h4>
-          <ul class="portfolio-modal__list">
-            ${data.architectureFeatures.map(item => `<li class="portfolio-modal__list-item">${item}</li>`).join('')}
-          </ul>
-        </div>
+        <h4 class="modal-case__section-title">Архитектура и решения:</h4>
+        <ul class="modal-case__achievements">
+          ${data.architectureFeatures.map(item => `<li>${item}</li>`).join('')}
+        </ul>
       `;
     }
 
     if (data.githubUrl || data.liveUrl) {
       contentHtml += `
-        <div class="portfolio-modal__links">
-          ${data.githubUrl ? `<a href="${data.githubUrl}" target="_blank" rel="noopener noreferrer" class="portfolio-modal__link">Код на GitHub</a>` : ''}
-          ${data.liveUrl ? `<a href="${data.liveUrl}" target="_blank" rel="noopener noreferrer" class="portfolio-modal__link">Live Demo</a>` : ''}
+        <div style="margin-top: 2rem; display: flex; gap: 1rem;">
+          ${data.githubUrl ? `<a href="${data.githubUrl}" target="_blank" rel="noopener noreferrer" class="btn btn--primary">GitHub Repository</a>` : ''}
+          ${data.liveUrl ? `<a href="${data.liveUrl}" target="_blank" rel="noopener noreferrer" class="btn btn--outline">Live Demo</a>` : ''}
         </div>
       `;
     }
@@ -138,7 +129,6 @@ export function initModals() {
     modal.setAttribute('aria-hidden', 'false');
     appContent.setAttribute('aria-hidden', 'true');
 
-    // Focus Trap Setup
     setupFocusTrap(modal as HTMLElement);
   };
 
@@ -185,7 +175,6 @@ export function initModals() {
 
     modalEl.addEventListener('keydown', handleTab);
     
-    // Clean up listener on close
     const cleanup = () => {
       modalEl.removeEventListener('keydown', handleTab);
       closeBtn.removeEventListener('click', cleanup);
