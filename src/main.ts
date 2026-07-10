@@ -15,7 +15,7 @@ function init() {
 
   // Initialize scroll-triggered entrance animations
   initAnimations({
-    sectionSelector: '.hero, .stack, .projects, .approach, .contact',
+    sectionSelector: '.hero, .experience, .stack, .projects, .approach, .contact',
     animateClass: 'animate-in',
     threshold: 0.1,
     duration: 500,
