@@ -1,174 +1,93 @@
-// ==========================================================================
-// Cases — Project cards with commercial/personal distinction
-// Validates: Requirements 4.3, 4.4, 9.4
-// ==========================================================================
-
 @use 'variables' as *;
 
-// --------------------------------------------------------------------------
-// Cases section
-// --------------------------------------------------------------------------
-.cases {
-  padding-block: var(--space-3xl);
-  background-color: var(--color-bg-primary);
-
-  @media (min-width: $bp-tablet) {
-    padding-block: var(--space-4xl);
-  }
-
-  // --------------------------------------------------------------------------
-  // Container
-  // --------------------------------------------------------------------------
-  &__container {
-    max-width: var(--container-max-width);
-    margin-inline: auto;
-    padding-inline: var(--container-padding);
-  }
-
-  // --------------------------------------------------------------------------
-  // Title
-  // --------------------------------------------------------------------------
-  &__title {
-    font-size: clamp(1.75rem, 4vw, 2.5rem);
-    font-weight: 700;
-    color: var(--color-text-primary);
-    margin-bottom: var(--space-2xl);
-  }
-
-  // --------------------------------------------------------------------------
-  // Group — commercial / personal
-  // --------------------------------------------------------------------------
-  &__group {
-    margin-bottom: var(--space-2xl);
-
-    &:last-child {
-      margin-bottom: 0;
-    }
-  }
-
-  &__group-title {
-    font-size: 1.25rem;
-    font-weight: 600;
-    color: var(--color-text-primary);
-    margin-bottom: var(--space-lg);
-    padding-bottom: var(--space-sm);
-    border-bottom: 2px solid var(--color-border);
-  }
-
-  // Commercial group — accent left indicator on title
-  &__group--commercial &__group-title {
-    border-bottom-color: var(--color-accent);
-  }
-
-  // Personal group — success color indicator on title
-  &__group--personal &__group-title {
-    border-bottom-color: var(--color-success);
-  }
-
-  // --------------------------------------------------------------------------
-  // Cards grid — 2 columns on tablet+
-  // Use CSS grid on the group level for card layout
-  // --------------------------------------------------------------------------
-  &__group {
+.projects {
+  &__grid {
     display: grid;
-    grid-template-columns: 1fr;
-    gap: var(--space-lg);
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: var(--space-6);
+  }
+}
 
-    @media (min-width: $bp-tablet) {
-      grid-template-columns: repeat(2, 1fr);
-    }
-
-    // Group title spans full width
-    .cases__group-title {
-      grid-column: 1 / -1;
+.project-card {
+  background-color: var(--color-bg-surface);
+  border: 1px solid var(--color-bg-elevated);
+  border-radius: var(--radius-xl);
+  padding: var(--space-6);
+  cursor: pointer;
+  transition: transform var(--transition-normal), box-shadow var(--transition-normal), border-color var(--transition-normal);
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  
+  &:hover, &:focus-visible {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-lg);
+    border-color: var(--color-accent-hover);
+    outline: none;
+    
+    .project-card__btn {
+      color: var(--color-accent-hover);
+      transform: translateX(4px);
     }
   }
 
-  // --------------------------------------------------------------------------
-  // Card — project case card
-  // --------------------------------------------------------------------------
-  &__card {
-    background-color: var(--color-bg-card);
-    border: 1px solid var(--color-border);
-    border-radius: var(--radius-lg);
-    padding: var(--space-lg);
-    transition: transform var(--transition-base), box-shadow var(--transition-base),
-      border-color var(--transition-base);
-
-    // Hover: lift + shadow
-    &:hover {
-      transform: translateY(-4px);
-      box-shadow: var(--shadow-lg);
-      border-color: var(--color-border-hover);
-    }
-
-    // Commercial card — accent left border
-    &[data-type='commercial'] {
-      border-left: 3px solid var(--color-accent);
-    }
-
-    // Personal card — success left border
-    &[data-type='personal'] {
-      border-left: 3px solid var(--color-success);
-    }
+  &__header {
+    margin-bottom: var(--space-4);
   }
 
-  // --------------------------------------------------------------------------
-  // Card title
-  // --------------------------------------------------------------------------
-  &__card-title {
-    font-size: 1.1rem;
+  &__category {
+    display: inline-block;
+    padding: 0.25rem 0.75rem;
+    font-size: 0.75rem;
     font-weight: 600;
-    color: var(--color-text-primary);
-    margin-bottom: var(--space-sm);
-    line-height: 1.4;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    border-radius: var(--radius-sm);
+    background-color: var(--color-bg-elevated);
+    color: var(--color-text-muted);
   }
 
-  // --------------------------------------------------------------------------
-  // Card technologies — badge row
-  // --------------------------------------------------------------------------
-  &__card-technologies {
+  &__title {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--color-text);
+    margin-bottom: var(--space-2);
+  }
+
+  &__desc {
+    color: var(--color-text-muted);
+    margin-bottom: var(--space-6);
+    flex-grow: 1;
+    line-height: 1.6;
+  }
+
+  &__tags {
     display: flex;
     flex-wrap: wrap;
-    gap: var(--space-xs);
-    margin-bottom: var(--space-md);
+    gap: var(--space-2);
+    margin-bottom: var(--space-6);
   }
 
-  // --------------------------------------------------------------------------
-  // Badge — small pill for technology tags in cards
-  // --------------------------------------------------------------------------
-  &__badge {
-    display: inline-block;
-    padding: 2px var(--space-sm);
-    font-size: 0.75rem;
-    font-weight: 500;
+  &__tag {
+    font-size: 0.8rem;
+    color: var(--color-text-dark);
+    background-color: rgba(255, 255, 255, 0.03);
+    padding: 0.2rem 0.6rem;
+    border-radius: var(--radius-sm);
+    border: 1px solid var(--color-bg-elevated);
+  }
+
+  &__btn {
+    align-self: flex-start;
+    background: none;
+    border: none;
     color: var(--color-accent);
-    background-color: var(--color-accent-subtle);
-    border-radius: var(--radius-full);
-    border: 1px solid rgba(108, 99, 255, 0.15);
-  }
-
-  // --------------------------------------------------------------------------
-  // Card description
-  // --------------------------------------------------------------------------
-  &__card-description {
-    font-size: 0.9rem;
-    color: var(--color-text-secondary);
-    line-height: 1.6;
-    margin-bottom: var(--space-sm);
-  }
-
-  // --------------------------------------------------------------------------
-  // Card result
-  // --------------------------------------------------------------------------
-  &__card-result {
-    font-size: 0.85rem;
-    color: var(--color-text-muted);
-    line-height: 1.5;
-
-    strong {
-      color: var(--color-text-secondary);
-      font-weight: 600;
-    }
+    font-weight: 600;
+    padding: 0;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: color var(--transition-fast), transform var(--transition-fast);
+    display: inline-flex;
+    align-items: center;
   }
 }

@@ -3,297 +3,251 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content="Портфолио Владислава Трубникова — Fullstack-разработчик" />
+    <meta name="description" content="Владислав Трубников — Software Engineer & Fullstack Developer" />
     <link rel="icon" type="image/svg+xml" href="/vite.svg" />
-    <title>Владислав Трубников — Fullstack-разработчик</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <title>Владислав Трубников — Fullstack Developer</title>
   </head>
-  <body>
-    <header class="header">
-      <nav class="nav">
-        <div class="nav__container">
-          <a href="#hero" class="nav__logo">Владислав Трубников</a>
+  <body class="page-body">
+    <div id="app-content">
+      <header class="header">
+        <nav class="nav container">
+          <a href="#hero" class="nav__logo">Vladislav Trubnikov</a>
           <ul class="nav__list">
-            <li class="nav__item">
-              <a href="#about" class="nav__link">Обо мне</a>
-            </li>
-            <li class="nav__item">
-              <a href="#approach" class="nav__link">Подход</a>
-            </li>
-            <li class="nav__item">
-              <a href="#cases" class="nav__link">Кейсы</a>
-            </li>
-            <li class="nav__item">
-              <a href="#contact" class="nav__link">Контакты</a>
-            </li>
+            <li class="nav__item"><a href="#about" class="nav__link">Обо мне</a></li>
+            <li class="nav__item"><a href="#stack" class="nav__link">Стек</a></li>
+            <li class="nav__item"><a href="#projects" class="nav__link">Проекты</a></li>
+            <li class="nav__item"><a href="#approach" class="nav__link">Подход</a></li>
+            <li class="nav__item"><a href="#contact" class="nav__link">Контакты</a></li>
           </ul>
-        </div>
-      </nav>
-    </header>
+        </nav>
+      </header>
 
-    <main class="main">
-      <section id="hero" class="hero">
-        <div class="hero__container">
-          <div class="hero__content">
-            <h1 class="hero__name">Владислав Трубников</h1>
-            <p class="hero__tagline">Fullstack-разработчик — от идеи до продакшна</p>
-          </div>
-          <div class="hero__photo-wrapper">
-            <img
-              src="/src/assets/photo_2026-05-11_15-49-07.jpg"
-              alt="Фото Владислава Трубникова"
-              class="hero__photo"
-            />
-          </div>
-        </div>
-      </section>
-
-      <section id="about" class="about">
-        <div class="about__container">
-          <h2 class="about__title">Обо мне</h2>
-
-          <div class="about__stack">
-            <h3 class="about__subtitle">Основной стек</h3>
-            <ul class="about__badge-list">
-              <li class="about__badge-item"><span class="about__badge">PHP</span></li>
-              <li class="about__badge-item"><span class="about__badge">JavaScript</span></li>
-              <li class="about__badge-item"><span class="about__badge">PostgreSQL</span></li>
-              <li class="about__badge-item"><span class="about__badge">HTML5/CSS3</span></li>
-              <li class="about__badge-item"><span class="about__badge">Git</span></li>
-            </ul>
-          </div>
-
-          <div class="about__stack about__stack--additional">
-            <h3 class="about__subtitle">Также в работе</h3>
-            <ul class="about__badge-list">
-              <li class="about__badge-item"><span class="about__badge about__badge--secondary">ASP.NET</span></li>
-              <li class="about__badge-item"><span class="about__badge about__badge--secondary">React</span></li>
-              <li class="about__badge-item"><span class="about__badge about__badge--secondary">TypeScript</span></li>
-              <li class="about__badge-item"><span class="about__badge about__badge--secondary">Docker</span></li>
-              <li class="about__badge-item"><span class="about__badge about__badge--secondary">Redis</span></li>
-            </ul>
-          </div>
-
-          <div class="about__experience">
-            <h3 class="about__subtitle">Опыт</h3>
-            <p class="about__experience-text">
-              <strong>1 год коммерческой разработки</strong> (Октябрь 2024 — Сентябрь 2025)
-            </p>
-            <p class="about__experience-detail">
-              Платформа для создания сайтов — fullstack end-to-end: от БД до фичи в проде.
-            </p>
-          </div>
-
-          <div class="about__directions">
-            <h3 class="about__subtitle">Направления разработки</h3>
-            <ul class="about__directions-list">
-              <li class="about__directions-item">Веб-приложения и конструкторы сайтов</li>
-              <li class="about__directions-item">Клиентские интерфейсы (UX/UI + код)</li>
-              <li class="about__directions-item">Серверная логика и оптимизация запросов</li>
-              <li class="about__directions-item">Редизайн и унификация легаси-модулей</li>
-            </ul>
-          </div>
-        </div>
-      </section>
-
-      <section id="approach" class="approach">
-        <div class="approach__container">
-          <h2 class="approach__title">Подход</h2>
-
-          <div class="approach__principles">
-            <h3 class="approach__subtitle">Как я работаю</h3>
-            <ol class="approach__principles-list">
-              <li class="approach__principles-item">Сначала пойму, зачем это нужно. Потом напишу код.</li>
-              <li class="approach__principles-item">Делаю рабочий минимум быстрее, чем идеальную архитектуру.</li>
-              <li class="approach__principles-item">Если задача ясна — сразу в продакшн с контролем ошибок.</li>
-            </ol>
-          </div>
-
-          <div class="approach__ai">
-            <h3 class="approach__subtitle">AI в работе</h3>
-            <p class="approach__ai-text">
-              Ускоряет рутину: скелеты кода, тесты, рефакторинг.
-              Но решения и ответственность — на мне. AI не знает ваш бизнес.
-            </p>
-          </div>
-
-          <div class="approach__value">
-            <h3 class="approach__subtitle">Почему со мной выгодно</h3>
-            <ul class="approach__value-list">
-              <li class="approach__value-item">Не жду идеальных условий — начинаю с того, что есть.</li>
-              <li class="approach__value-item">Закрываю задачу целиком: фронт, бэк, база, деплой.</li>
-              <li class="approach__value-item">Мой код не надо переписывать через полгода.</li>
-            </ul>
-          </div>
-        </div>
-      </section>
-
-      <section id="cases" class="cases">
-        <div class="cases__container container">
-          <h2 class="cases__title">Кейсы</h2>
-
-          <!-- Commercial Projects -->
-          <div class="cases__group cases__group--commercial">
-            <h3 class="cases__group-title">Коммерческие проекты</h3>
-
-            <article class="cases__card" data-type="commercial">
-              <h4 class="cases__card-title">Поиск по сайту (заголовки + текст)</h4>
-              <div class="cases__card-technologies">
-                <span class="cases__badge">PostgreSQL</span>
-                <span class="cases__badge">PHP</span>
-                <span class="cases__badge">JavaScript</span>
+      <main class="main">
+        <!-- HERO & ABOUT -->
+        <section id="hero" class="hero section">
+          <div class="hero__container container">
+            <div class="hero__content">
+              <h1 class="hero__title">Владислав Трубников <span class="hero__title-accent">| Fullstack Developer</span></h1>
+              <p class="hero__subtitle">Проектирую и создаю веб-сервисы от архитектуры базы данных до фичи в продакшене.</p>
+              
+              <div class="hero__about">
+                <p>Общий стаж программирования — 4 года (активно пишу код с 14 лет). Имею опыт коммерческой разработки в продуктовой команде. Специализируюсь на создании отказоустойчивых веб-приложений, проектировании REST API и оптимизации баз данных.</p>
+                <p>Мой подход — заходить в задачу целиком (End-to-End): от сбора требований бизнеса до контейнеризации и деплоя.</p>
               </div>
-              <p class="cases__card-description">Спроектировал полнотекстовый индекс на PostgreSQL, бэкенд на PHP, фронт на чистом JS с дебаунсом</p>
-              <p class="cases__card-result"><strong>Результат:</strong> Пользователи находят нужную страницу в 3 клика вместо 10</p>
-            </article>
-
-            <article class="cases__card" data-type="commercial">
-              <h4 class="cases__card-title">Редизайн устаревших модулей</h4>
-              <div class="cases__card-technologies">
-                <span class="cases__badge">HTML/CSS</span>
-                <span class="cases__badge">JavaScript</span>
-                <span class="cases__badge">UX/UI</span>
-              </div>
-              <p class="cases__card-description">Унифицировал 5 модулей под единый UI/UX, переписал вёрстку и сценарии</p>
-              <p class="cases__card-result"><strong>Результат:</strong> Визуальный хаос ушёл, новые пользователи перестали путаться</p>
-            </article>
-
-            <article class="cases__card" data-type="commercial">
-              <h4 class="cases__card-title">Адаптивный онбординг в админке</h4>
-              <div class="cases__card-technologies">
-                <span class="cases__badge">JavaScript</span>
-                <span class="cases__badge">UX</span>
-              </div>
-              <p class="cases__card-description">Добавил умное раскрытие разделов (помнит, что уже видел пользователь)</p>
-              <p class="cases__card-result"><strong>Результат:</strong> Сократил лишние действия при первом входе на 40%</p>
-            </article>
-
-            <article class="cases__card" data-type="commercial">
-              <h4 class="cases__card-title">Критичный баг в редакторе</h4>
-              <div class="cases__card-technologies">
-                <span class="cases__badge">JavaScript</span>
-                <span class="cases__badge">PHP</span>
-              </div>
-              <p class="cases__card-description">Переписал загрузку описаний модулей — теперь данные обновляются без перезагрузки страницы</p>
-              <p class="cases__card-result"><strong>Результат:</strong> Баг исчез навсегда, редактор стал стабильнее</p>
-            </article>
-          </div>
-
-          <!-- Personal Projects -->
-          <div class="cases__group cases__group--personal">
-            <h3 class="cases__group-title">Личные проекты</h3>
-
-            <article class="cases__card" data-type="personal">
-              <h4 class="cases__card-title">🚀 Momentum — трекер фокуса с системой стриков</h4>
-              <div class="cases__card-technologies">
-                <span class="cases__badge">React 19</span>
-                <span class="cases__badge">TypeScript</span>
-                <span class="cases__badge">ASP.NET Core</span>
-                <span class="cases__badge">PostgreSQL</span>
-                <span class="cases__badge">Redis</span>
-                <span class="cases__badge">Docker Compose</span>
-              </div>
-              <p class="cases__card-description">Full-stack архитектура, JWT-авторизация, логика стриков, React + Tailwind кабинет</p>
-              <p class="cases__card-result"><strong>Результат:</strong> Стек полностью современный, проект в активной разработке</p>
-            </article>
-
-            <article class="cases__card" data-type="personal">
-              <h4 class="cases__card-title">🌸 Sakura Chess — шахматы с ИИ на движке Lc0</h4>
-              <div class="cases__card-technologies">
-                <span class="cases__badge">WPF</span>
-                <span class="cases__badge">.NET 8</span>
-                <span class="cases__badge">Material Design</span>
-                <span class="cases__badge">Lc0 engine</span>
-              </div>
-              <p class="cases__card-description">Интеграция с Lc0, шахматная логика, Material Design интерфейс, режимы времени</p>
-              <p class="cases__card-result"><strong>Результат:</strong> Готовый установщик для Windows</p>
-            </article>
-
-            <article class="cases__card" data-type="personal">
-              <h4 class="cases__card-title">🏥 MediCare Management System — медицинская учётная система</h4>
-              <div class="cases__card-technologies">
-                <span class="cases__badge">ASP.NET Core 9</span>
-                <span class="cases__badge">React 19</span>
-                <span class="cases__badge">TypeScript</span>
-                <span class="cases__badge">EF Core (SQLite)</span>
-              </div>
-              <p class="cases__card-description">Доменные модели с Value Objects, REST API, React-приложение</p>
-              <p class="cases__card-result"><strong>Результат:</strong> Показывает правильную архитектуру</p>
-            </article>
-          </div>
-        </div>
-      </section>
-
-      <section id="contact" class="contact" aria-labelledby="contact-title">
-        <div class="contact__container container">
-          <h2 id="contact-title" class="contact__title">Связаться со мной</h2>
-          <p class="contact__subtitle">Заполните форму и я свяжусь с вами в ближайшее время</p>
-
-          <form class="contact__form" action="/api/contact" method="POST" novalidate>
-            <div class="contact__field">
-              <label for="name" class="contact__label">Имя</label>
-              <input
-                type="text"
-                id="name"
-                name="name"
-                class="contact__input"
-                placeholder="Ваше имя"
-                required
-                aria-required="true"
-              />
-              <span class="contact__error" aria-live="polite"></span>
             </div>
-
-            <div class="contact__field">
-              <label for="phone" class="contact__label">Телефон</label>
-              <input
-                type="tel"
-                id="phone"
-                name="phone"
-                class="contact__input"
-                placeholder="+7 (999) 123-45-67"
-              />
-              <span class="contact__error" aria-live="polite"></span>
+            <div class="hero__visual">
+              <div class="hero__image-wrapper">
+                <img src="/src/assets/photo_2026-05-11_15-49-07.jpg" alt="Владислав Трубников" class="hero__image" />
+                <div class="hero__image-glow"></div>
+              </div>
             </div>
+          </div>
+        </section>
 
-            <div class="contact__field">
-              <label for="email" class="contact__label">Email</label>
-              <input
-                type="email"
-                id="email"
-                name="email"
-                class="contact__input"
-                placeholder="your@email.com"
-                required
-                aria-required="true"
-              />
-              <span class="contact__error" aria-live="polite"></span>
+        <!-- TECH STACK -->
+        <section id="stack" class="stack section">
+          <div class="stack__container container">
+            <h2 class="section__title">Технический стек</h2>
+            <div class="stack__grid">
+              <div class="stack__group stack__group--core">
+                <h3 class="stack__group-title">Core Expert</h3>
+                <div class="stack__tags">
+                  <span class="stack__tag">C#</span>
+                  <span class="stack__tag">ASP.NET Core</span>
+                  <span class="stack__tag">React</span>
+                  <span class="stack__tag">TypeScript</span>
+                  <span class="stack__tag">JavaScript</span>
+                  <span class="stack__tag">PostgreSQL</span>
+                  <span class="stack__tag">Entity Framework (EF Core)</span>
+                  <span class="stack__tag">Docker</span>
+                  <span class="stack__tag">Docker-compose</span>
+                  <span class="stack__tag">LINQ</span>
+                </div>
+              </div>
+              <div class="stack__group stack__group--ecosystem">
+                <h3 class="stack__group-title">Ecosystem & Tools</h3>
+                <div class="stack__tags">
+                  <span class="stack__tag stack__tag--secondary">Node.js</span>
+                  <span class="stack__tag stack__tag--secondary">Redis</span>
+                  <span class="stack__tag stack__tag--secondary">Web API</span>
+                  <span class="stack__tag stack__tag--secondary">ASP.NET MVC</span>
+                  <span class="stack__tag stack__tag--secondary">JWT</span>
+                  <span class="stack__tag stack__tag--secondary">Identity</span>
+                  <span class="stack__tag stack__tag--secondary">Git</span>
+                  <span class="stack__tag stack__tag--secondary">REST API</span>
+                  <span class="stack__tag stack__tag--secondary">LLM в разработке</span>
+                  <span class="stack__tag stack__tag--secondary">HTML5/CSS3</span>
+                </div>
+              </div>
             </div>
+          </div>
+        </section>
 
-            <div class="contact__field">
-              <label for="comment" class="contact__label">Комментарий</label>
-              <textarea
-                id="comment"
-                name="comment"
-                class="contact__input contact__textarea"
-                placeholder="Расскажите о вашем проекте..."
-                rows="5"
-              ></textarea>
-              <span class="contact__error" aria-live="polite"></span>
+        <!-- PROJECTS -->
+        <section id="projects" class="projects section">
+          <div class="projects__container container">
+            <h2 class="section__title">Проекты</h2>
+            <div class="projects__grid">
+              <!-- Cards are populated by JS or hardcoded here and intercepted -->
+              <article class="project-card" data-project-id="lookmy" tabindex="0">
+                <div class="project-card__header">
+                  <span class="project-card__category">Коммерческий опыт</span>
+                </div>
+                <h3 class="project-card__title">LookMy</h3>
+                <p class="project-card__desc">Платформа-конструктор сайтов. Развитие конструктора, рефакторинг и закрытие задач уровня End-to-End.</p>
+                <div class="project-card__tags">
+                  <span class="project-card__tag">C#</span>
+                  <span class="project-card__tag">React</span>
+                  <span class="project-card__tag">PostgreSQL</span>
+                </div>
+                <button class="project-card__btn" aria-label="Подробнее о проекте LookMy">Подробнее &rarr;</button>
+              </article>
+
+              <article class="project-card" data-project-id="momentum" tabindex="0">
+                <div class="project-card__header">
+                  <span class="project-card__category">Pet-project</span>
+                </div>
+                <h3 class="project-card__title">Momentum</h3>
+                <p class="project-card__desc">Платформа для трекинга фокуса и продуктивности с микросервисной архитектурой.</p>
+                <div class="project-card__tags">
+                  <span class="project-card__tag">React 19</span>
+                  <span class="project-card__tag">ASP.NET Core</span>
+                  <span class="project-card__tag">Docker</span>
+                </div>
+                <button class="project-card__btn" aria-label="Подробнее о проекте Momentum">Подробнее &rarr;</button>
+              </article>
+
+              <article class="project-card" data-project-id="medicare" tabindex="0">
+                <div class="project-card__header">
+                  <span class="project-card__category">Pet-project</span>
+                </div>
+                <h3 class="project-card__title">MediCare Management System</h3>
+                <p class="project-card__desc">Медицинская учётная система, демонстрирующая лучшие практики enterprise-архитектуры.</p>
+                <div class="project-card__tags">
+                  <span class="project-card__tag">DDD</span>
+                  <span class="project-card__tag">ASP.NET Core 9</span>
+                  <span class="project-card__tag">EF Core</span>
+                </div>
+                <button class="project-card__btn" aria-label="Подробнее о проекте MediCare">Подробнее &rarr;</button>
+              </article>
+
+              <article class="project-card" data-project-id="sakurachess" tabindex="0">
+                <div class="project-card__header">
+                  <span class="project-card__category">Pet-project</span>
+                </div>
+                <h3 class="project-card__title">Sakura Chess</h3>
+                <p class="project-card__desc">Десктопное шахматное приложение со встроенным искусственным интеллектом.</p>
+                <div class="project-card__tags">
+                  <span class="project-card__tag">WPF</span>
+                  <span class="project-card__tag">.NET 8</span>
+                  <span class="project-card__tag">Lc0 Engine</span>
+                </div>
+                <button class="project-card__btn" aria-label="Подробнее о проекте Sakura Chess">Подробнее &rarr;</button>
+              </article>
             </div>
+          </div>
+        </section>
 
-            <button type="submit" class="contact__submit">Отправить сообщение</button>
-          </form>
+        <!-- APPROACH -->
+        <section id="approach" class="approach section">
+          <div class="approach__container container">
+            <h2 class="section__title">Инженерный подход</h2>
+            <div class="approach__grid">
+              <div class="approach__card">
+                <div class="approach__card-icon">
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
+                </div>
+                <h3 class="approach__card-title">Бизнес-ориентированность</h3>
+                <p class="approach__card-text">Сначала пойму, какую проблему бизнеса решает фича, и только потом пишу код. Не трачу время на код ради кода.</p>
+              </div>
+              <div class="approach__card">
+                <div class="approach__card-icon">
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+                </div>
+                <h3 class="approach__card-title">Скорость доставки</h3>
+                <p class="approach__card-text">Умею быстро выдавать работающий production-ready минимум (MVP) вместо бесконечного проектирования мертвой идеальной архитектуры.</p>
+              </div>
+              <div class="approach__card">
+                <div class="approach__card-icon">
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+                </div>
+                <h3 class="approach__card-title">AI как ассистент</h3>
+                <p class="approach__card-text">Активно использую LLM-инструменты для автоматизации рутины (генерация тестов, скелеты кода, быстрый рефакторинг), что ускоряет мою разработку в 2 раза. При этом архитектурные решения и ответственность за логику всегда остаются на мне.</p>
+              </div>
+            </div>
+          </div>
+        </section>
 
-          <div class="contact__notification" role="alert" aria-live="polite"></div>
+        <!-- CONTACT -->
+        <section id="contact" class="contact section">
+          <div class="contact__container container">
+            <div class="contact__content">
+              <h2 class="section__title">Связаться со мной</h2>
+              <p class="contact__subtitle">Готов обсудить задачи, архитектуру и присоединиться к сильной команде.</p>
+              <div class="contact__links">
+                <a href="https://t.me/D4cLoves" target="_blank" rel="noopener noreferrer" class="contact__link-btn">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 2L11 13M22 2l-7 20-4-9-9-4 20-7z"/></svg>
+                  Telegram: @D4cLoves
+                </a>
+                <a href="https://github.com/D4cLoves" target="_blank" rel="noopener noreferrer" class="contact__link-btn">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
+                  GitHub: D4cLoves
+                </a>
+                <a href="mailto:d4c_loves@mail.ru" class="contact__link-btn">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+                  d4c_loves@mail.ru
+                </a>
+              </div>
+            </div>
+            
+            <form id="contact-form" class="contact__form" action="/api/contact" method="POST" novalidate>
+              <div class="contact__field">
+                <label for="name" class="contact__label">Имя</label>
+                <input type="text" id="name" name="name" class="contact__input" placeholder="Иван Иванов" required aria-required="true" />
+                <span class="contact__error" aria-live="polite"></span>
+              </div>
+              <div class="contact__field">
+                <label for="email" class="contact__label">Email</label>
+                <input type="email" id="email" name="email" class="contact__input" placeholder="ivan@example.com" required aria-required="true" />
+                <span class="contact__error" aria-live="polite"></span>
+              </div>
+              <div class="contact__field">
+                <label for="comment" class="contact__label">Сообщение</label>
+                <textarea id="comment" name="comment" class="contact__input contact__textarea" placeholder="Расскажите о вашем проекте..." rows="4" required aria-required="true"></textarea>
+                <span class="contact__error" aria-live="polite"></span>
+              </div>
+              <button type="submit" class="contact__submit-btn">
+                <span class="contact__submit-text">Отправить сообщение</span>
+                <span class="contact__submit-loader"></span>
+              </button>
+              <div id="contact-status" class="contact__status" role="alert" aria-live="polite"></div>
+            </form>
+          </div>
+        </section>
+      </main>
+
+      <footer class="footer">
+        <div class="footer__container container">
+          <p>&copy; 2026 Владислав Трубников. Fullstack Developer.</p>
         </div>
-      </section>
-    </main>
+      </footer>
+    </div>
 
-    <footer class="footer">
-      <div class="footer__container">
-        <p class="footer__copyright">&copy; 2025 Владислав Трубников. Все права защищены.</p>
+    <!-- MODAL CONTAINER -->
+    <div id="portfolio-modal" class="portfolio-modal" role="dialog" aria-modal="true" aria-hidden="true" tabindex="-1">
+      <div class="portfolio-modal__backdrop" aria-hidden="true"></div>
+      <div class="portfolio-modal__container">
+        <button class="portfolio-modal__close-btn" aria-label="Закрыть окно">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+        </button>
+        <div class="portfolio-modal__content" id="portfolio-modal-content">
+          <!-- Dynamic content injected here -->
+        </div>
       </div>
-    </footer>
+    </div>
 
     <script type="module" src="/src/main.ts"></script>
   </body>

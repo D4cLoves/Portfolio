@@ -13,13 +13,11 @@
 // Components
 @use 'navigation';
 @use 'hero';
-@use 'about';
+@use 'stack';
 @use 'approach';
 @use 'cases';
 @use 'contact';
+@use 'modals';
 
 // Animations (loaded last to allow overrides)
 @use 'animations';
-
-// Widgets
-@use 'chat-widget';

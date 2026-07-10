@@ -26,8 +26,8 @@ export interface NotificationConfig {
 /** Default selectors matching the contact form HTML structure */
 const DEFAULT_CONFIG: NotificationConfig = {
   formSelector: '.contact__form',
-  messageSelector: '.contact__notification',
-  submitButtonSelector: '.contact__submit',
+  messageSelector: '#contact-status',
+  submitButtonSelector: '.contact__submit-btn',
 };
 
 /** CSS classes used for state management */

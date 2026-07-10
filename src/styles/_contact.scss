@@ -1,213 +1,186 @@
-// ==========================================================================
-// Contact Section — Form layout, input styles, error states, button states
-// Validates: Requirements 5.1, 5.2, 5.3, 5.4, 5.5
-// ==========================================================================
+@use 'variables' as *;
 
 .contact {
-  padding: var(--space-4xl) 0;
-  background-color: var(--color-bg-primary);
-}
+  &__container {
+    display: flex;
+    gap: var(--space-8);
+    
+    @media (max-width: 992px) {
+      flex-direction: column;
+    }
+  }
 
-.contact__container {
-  max-width: 600px;
-  margin: 0 auto;
-  padding: 0 var(--container-padding);
-}
+  &__content {
+    flex: 1;
+    
+    @media (max-width: 992px) {
+      margin-bottom: var(--space-6);
+    }
+  }
 
-.contact__title {
-  font-size: 2rem;
-  font-weight: 700;
-  color: var(--color-text-primary);
-  text-align: center;
-  margin-bottom: var(--space-sm);
-}
+  &__subtitle {
+    font-size: 1.25rem;
+    color: var(--color-text-muted);
+    margin-bottom: var(--space-8);
+    max-width: 400px;
+  }
 
-.contact__subtitle {
-  font-size: 1rem;
-  color: var(--color-text-secondary);
-  text-align: center;
-  margin-bottom: var(--space-2xl);
-}
+  &__links {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-3);
+  }
 
-// --------------------------------------------------------------------------
-// Form layout
-// --------------------------------------------------------------------------
+  &__link-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-3);
+    padding: var(--space-3) var(--space-4);
+    background-color: var(--color-bg-surface);
+    border: 1px solid var(--color-bg-elevated);
+    border-radius: var(--radius-lg);
+    color: var(--color-text);
+    text-decoration: none;
+    font-weight: 500;
+    transition: background-color var(--transition-fast), border-color var(--transition-fast);
+    
+    svg {
+      color: var(--color-accent);
+    }
 
-.contact__form {
-  display: flex;
-  flex-direction: column;
-  gap: var(--space-lg);
-}
+    &:hover, &:focus-visible {
+      background-color: var(--color-bg-elevated);
+      border-color: var(--color-accent-hover);
+      outline: none;
+    }
+  }
 
-.contact__field {
-  display: flex;
-  flex-direction: column;
-  gap: var(--space-xs);
-}
+  &__form {
+    flex: 1;
+    background-color: var(--color-bg-surface);
+    padding: var(--space-6);
+    border-radius: var(--radius-xl);
+    border: 1px solid var(--color-bg-elevated);
+  }
 
-.contact__label {
-  font-size: 0.875rem;
-  font-weight: 500;
-  color: var(--color-text-secondary);
-}
+  &__field {
+    margin-bottom: var(--space-4);
+    position: relative;
+  }
 
-// --------------------------------------------------------------------------
-// Input styles
-// --------------------------------------------------------------------------
-
-.contact__input {
-  width: 100%;
-  padding: var(--space-md);
-  background-color: var(--color-bg-secondary);
-  border: 1px solid var(--color-border);
-  border-radius: var(--radius-md);
-  color: var(--color-text-primary);
-  font-size: 1rem;
-  font-family: inherit;
-  transition: border-color var(--transition-base), box-shadow var(--transition-base);
-
-  &::placeholder {
+  &__label {
+    display: block;
+    margin-bottom: var(--space-2);
+    font-size: 0.875rem;
+    font-weight: 500;
     color: var(--color-text-muted);
   }
 
-  &:focus {
-    outline: none;
-    border-color: var(--color-accent);
-    box-shadow: 0 0 0 3px var(--color-accent-subtle);
+  &__input {
+    width: 100%;
+    padding: 0.75rem 1rem;
+    background-color: var(--color-bg);
+    border: 1px solid var(--color-bg-elevated);
+    border-radius: var(--radius-md);
+    color: var(--color-text);
+    font-family: inherit;
+    font-size: 1rem;
+    transition: border-color var(--transition-fast), box-shadow var(--transition-fast);
+    
+    &:focus {
+      outline: none;
+      border-color: var(--color-accent);
+      box-shadow: 0 0 0 3px var(--color-accent-glow);
+    }
+    
+    &::placeholder {
+      color: var(--color-text-dark);
+    }
+    
+    &--error {
+      border-color: var(--color-error);
+      
+      &:focus {
+        border-color: var(--color-error);
+        box-shadow: 0 0 0 3px rgba(239, 68, 68, 0.2);
+      }
+    }
   }
 
-  // Error state
-  &--error {
-    border-color: var(--color-error);
+  &__textarea {
+    resize: vertical;
+    min-height: 120px;
+  }
 
-    &:focus {
-      border-color: var(--color-error);
-      box-shadow: 0 0 0 3px rgba(244, 67, 54, 0.12);
+  &__error {
+    display: block;
+    color: var(--color-error);
+    font-size: 0.75rem;
+    margin-top: 0.5rem;
+    min-height: 1rem;
+  }
+
+  &__submit-btn {
+    width: 100%;
+    padding: 1rem;
+    background-color: var(--color-accent);
+    color: white;
+    border: none;
+    border-radius: var(--radius-md);
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color var(--transition-fast);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: var(--space-2);
+    
+    &:hover:not(:disabled) {
+      background-color: var(--color-accent-hover);
+    }
+    
+    &:disabled {
+      opacity: 0.7;
+      cursor: not-allowed;
+    }
+  }
+
+  &__submit-loader {
+    display: none;
+    width: 18px;
+    height: 18px;
+    border: 2px solid rgba(255,255,255,0.3);
+    border-radius: 50%;
+    border-top-color: white;
+    animation: spin 1s linear infinite;
+  }
+  
+  &__submit--loading {
+    .contact__submit-text {
+      display: none;
+    }
+    .contact__submit-loader {
+      display: block;
+    }
+  }
+
+  &__status {
+    margin-top: var(--space-4);
+    font-size: 0.875rem;
+    text-align: center;
+    min-height: 1.5rem;
+    
+    &--success {
+      color: var(--color-success);
+    }
+    
+    &--error {
+      color: var(--color-error);
     }
   }
 }
 
-// --------------------------------------------------------------------------
-// Textarea
-// --------------------------------------------------------------------------
-
-.contact__textarea {
-  min-height: 140px;
-  resize: vertical;
-}
-
-// --------------------------------------------------------------------------
-// Error messages
-// --------------------------------------------------------------------------
-
-.contact__error {
-  font-size: 0.75rem;
-  color: var(--color-error);
-  min-height: 0;
-  overflow: hidden;
-  transition: min-height var(--transition-base);
-
-  &:empty {
-    display: none;
-  }
-}
-
-// --------------------------------------------------------------------------
-// Submit button
-// --------------------------------------------------------------------------
-
-.contact__submit {
-  padding: var(--space-md) var(--space-xl);
-  background-color: var(--color-accent);
-  color: #ffffff;
-  font-size: 1rem;
-  font-weight: 600;
-  border: none;
-  border-radius: var(--radius-md);
-  cursor: pointer;
-  transition: background-color var(--transition-base), transform var(--transition-base),
-    opacity var(--transition-base);
-
-  &:hover {
-    background-color: var(--color-accent-hover);
-    transform: translateY(-1px);
-  }
-
-  &:active {
-    transform: translateY(0);
-  }
-
-  &:disabled {
-    opacity: 0.5;
-    cursor: not-allowed;
-    transform: none;
-  }
-
-  // Loading state — pulsing animation
-  &--loading {
-    pointer-events: none;
-    opacity: 0.7;
-    animation: pulse 1.2s ease-in-out infinite;
-  }
-}
-
-@keyframes pulse {
-  0%,
-  100% {
-    opacity: 0.7;
-  }
-  50% {
-    opacity: 0.4;
-  }
-}
-
-// --------------------------------------------------------------------------
-// Notification area
-// --------------------------------------------------------------------------
-
-.contact__notification {
-  margin-top: var(--space-lg);
-  padding: var(--space-md);
-  border-radius: var(--radius-md);
-  font-size: 0.875rem;
-  text-align: center;
-  transition: opacity var(--transition-base);
-
-  &:empty {
-    display: none;
-  }
-
-  &--success {
-    background-color: rgba(76, 175, 80, 0.1);
-    color: var(--color-success);
-    border: 1px solid var(--color-success);
-  }
-
-  &--error {
-    background-color: rgba(244, 67, 54, 0.1);
-    color: var(--color-error);
-    border: 1px solid var(--color-error);
-  }
-}
-
-// --------------------------------------------------------------------------
-// Footer
-// --------------------------------------------------------------------------
-
-.footer {
-  padding: var(--space-xl) 0;
-  background-color: var(--color-bg-secondary);
-  border-top: 1px solid var(--color-border);
-}
-
-.footer__container {
-  max-width: var(--container-max-width);
-  margin: 0 auto;
-  padding: 0 var(--container-padding);
-  text-align: center;
-}
-
-.footer__copyright {
-  font-size: 0.875rem;
-  color: var(--color-text-muted);
+@keyframes spin {
+  to { transform: rotate(360deg); }
 }
