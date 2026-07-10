@@ -1,6 +1,7 @@
 import './styles/main.scss';
 import { initForm } from './scripts/form';
 import { initModals } from './scripts/modals';
+import { initAnimations } from './scripts/animations';
 
 document.addEventListener('DOMContentLoaded', () => {
   // Initialize contact form with validation and submission handling
@@ -11,4 +12,12 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // Initialize Project Modals
   initModals();
+
+  // Initialize scroll-triggered entrance animations
+  initAnimations({
+    sectionSelector: '.hero, .stack, .projects, .approach, .contact',
+    animateClass: 'animate-in',
+    threshold: 0.1,
+    duration: 500,
+  });
 });
