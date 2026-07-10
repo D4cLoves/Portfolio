@@ -1,66 +1,105 @@
 export interface IProjectCase {
   id: string;
   title: string;
-  category: 'commercial' | 'pet';
+  type: 'commercial' | 'pet';
+  badge: string;
+  shortDescription: string;
   stack: string[];
-  description: string;
-  achievements: string[];
-  architectureFeatures?: string[];
+  metrics: string[];
+  engineeringTasks: string[];
   githubUrl?: string;
   liveUrl?: string;
+  commercialMeta?: {
+    role: string;
+    period: string;
+  };
 }
 
 const projectsData: Record<string, IProjectCase> = {
-  'poll-system': {
-    id: 'poll-system',
-    title: 'Poll System',
-    category: 'pet',
-    stack: ['PHP 8.2', 'Symfony 7', 'PostgreSQL', 'Redis', 'Docker'],
-    description: 'Масштабируемая система создания и прохождения опросов с развитой ролевой моделью и REST API.',
-    achievements: [
-      'Спроектировал реляционную схему базы данных для хранения сложных зависимостей между вопросами.',
-      'Реализовал систему кэширования результатов опросов с использованием Redis для снижения нагрузки.',
-      'Настроил CI/CD для автоматического линтинга и прогона PHPUnit тестов.'
+  'lookmy-commercial': {
+    id: "lookmy-commercial",
+    title: "LookMy (Платформа-конструктор сайтов)",
+    type: "commercial",
+    badge: "Коммерческий опыт",
+    shortDescription: "Развитие и оптимизация fullstack-части крупного SaaS-конструктора сайтов в продуктовой команде. Закрытие задач уровня End-to-End.",
+    stack: ["C#", "ASP.NET Core", "PostgreSQL", "React", "TypeScript", "JavaScript", "Docker", "Git"],
+    commercialMeta: {
+      role: "Fullstack-разработчик",
+      period: "Октябрь 2024 — Сентябрь 2025 (1 год)"
+    },
+    metrics: [
+      "Успешно переведены на современную UI-архитектуру 5 ключевых легаси-модулей управления.",
+      "Локализован и устранен критический баг реактивного обновления данных в визуальном редакторе.",
+      "Оптимизирована скорость поиска по внутреннему контенту за счет кастомных индексов в БД."
     ],
-    architectureFeatures: [
-      'Использование Symfony Messenger для асинхронной обработки тяжелых задач (например, генерация отчетов).',
-      'Строгое соблюдение SOLID и принципов чистой архитектуры (выделение Use Cases).'
-    ],
-    githubUrl: 'https://github.com/D4cLoves'
+    engineeringTasks: [
+      "Проектирование и интеграция модуля полнотекстового поиска по заголовкам и содержимому пользовательских страниц на стороне бэкенда с использованием возможностей PostgreSQL.",
+      "Глубокий рефакторинг, редизайн и унификация устаревших UI-компонентов конструктора с переводом их на стек React + TypeScript под единую дизайн-систему приложения.",
+      "Устранение архитектурной проблемы с асинхронным обновлением описаний модулей в визуальном редакторе, обеспечив стабильную реактивную загрузку данных без перезагрузки страниц.",
+      "Самостоятельное сквозное (End-to-End) ведение продуктовых фич: от сбора и анализа бизнес-требований до проектирования схем данных, написания Web API, верстки и релиза.",
+      "Настройка локального окружения и контейнеризации зависимостей сервиса с помощью Docker и Docker-compose."
+    ]
   },
-  'ege-simulator': {
-    id: 'ege-simulator',
-    title: 'EGE Simulator',
-    category: 'pet',
-    stack: ['React', 'Redux Toolkit', 'TypeScript', 'SCSS'],
-    description: 'Игровая платформа для подготовки к ЕГЭ. Интерактивные тесты, таймеры и система рейтингов.',
-    achievements: [
-      'Разработал сложный UI с множеством интерактивных элементов (drag-and-drop, таймеры, графики прогресса).',
-      'Оптимизировал рендеринг списков с помощью мемоизации, что повысило производительность на слабых устройствах.',
-      'Внедрил глобальное управление состоянием через Redux Toolkit.'
+  'momentum-tracker': {
+    id: "momentum-tracker",
+    title: "Momentum — Платформа продуктивности",
+    type: "pet",
+    badge: "Личный проект",
+    shortDescription: "SaaS-платформа для трекинга фокуса, сессий и персональной статистики с микросервисной архитектурой и JWT-авторизацией.",
+    stack: ["React 19", "TypeScript", "Tailwind CSS", "ASP.NET Core", "PostgreSQL", "Redis", "Docker Compose", "JWT"],
+    githubUrl: "https://github.com/D4cLoves",
+    metrics: [
+      "Архитектура полностью разделена по стандарту Clean Architecture.",
+      "Обеспечена высокая отказоустойчивость сессий за счет кэширования токенов в Redis.",
+      "Проект полностью контейнеризирован для мгновенного развертывания в любой среде."
     ],
-    architectureFeatures: [
-      'Feature-Sliced Design (FSD) для организации структуры проекта.',
-      'Кастомные хуки для инкапсуляции сложной логики (например, хук таймера экзамена).'
-    ],
-    githubUrl: 'https://github.com/D4cLoves'
+    engineeringTasks: [
+      "Реализация комплексной серверной бизнес-логики: трекинг фокус-сессий, вычисление ежедневных стриков (активности) и аналитическое распределение времени по проектам.",
+      "Разработка защищенного механизма аутентификации и авторизации (Authentication Flow) на базе JWT (Access/Refresh tokens) со строгим контролем жизненного цикла сессий.",
+      "Создание отзывчивого пользовательского интерфейса (Личный кабинет, графики статистики, таймеры) на базе React 19 с жесткой типизацией на TypeScript.",
+      "Покрытие ключевых эндпоинтов и бизнес-логики слоем интеграционных тестов (Integration Tests) для предотвращения регрессий при масштабировании кода.",
+      "Проектирование чистой слоистой архитектуры приложения с четким разделением на слои: Domain, Application, Infrastructure и Shared Kernel."
+    ]
   },
-  'online-store': {
-    id: 'online-store',
-    title: 'E-Commerce Store',
-    category: 'pet',
-    stack: ['Vue 3', 'Vuex', 'TailwindCSS', 'Node.js'],
-    description: 'Полноценный интернет-магазин с каталогом, корзиной и панелью администратора.',
-    achievements: [
-      'Реализовал корзину покупок с синхронизацией состояния между вкладками через LocalStorage.',
-      'Разработал панель администратора для управления товарами и заказами.',
-      'Интегрировал заглушку платежного шлюза для симуляции транзакций.'
+  'medicare-system': {
+    id: "medicare-system",
+    title: "MediCare Management System",
+    type: "pet",
+    badge: "Личный проект",
+    shortDescription: "Медицинская учетная система корпоративного уровня, демонстрирующая применение паттернов DDD и проектирование чистых REST API.",
+    stack: ["ASP.NET Core 9", "React 19", "TypeScript", "Entity Framework Core", "SQLite", "Swagger"],
+    githubUrl: "https://github.com/D4cLoves/MediCareManagementSystem",
+    metrics: [
+      "100% изоляция доменной логики от инфраструктурных зависимостей.",
+      "Интерфейс спроектирован как строго типизированное SPA-приложение.",
+      "REST API полностью задокументировано в соответствии со стандартами OpenAPI."
     ],
-    architectureFeatures: [
-      'Использование Vue Composition API для переиспользования логики фильтрации товаров.',
-      'Ленивая загрузка (Lazy Loading) компонентов и изображений для ускорения TTI.'
+    engineeringTasks: [
+      "Разработка архитектуры по методологии Domain-Driven Design (DDD). Использование Domain Models и Value Objects для инкапсуляции бизнес-правил медицинской системы.",
+      "Реализация гибкого слоя работы с базой данных через Entity Framework Core, настройка механизмов автоматической генерации тестовых данных (Data Seeding).",
+      "Проектирование публичного REST API, включающего модули управления медицинскими картами пациентов и умный поиск практикующих врачей по узким специализациям.",
+      "Интеграция и интерактивная визуализация данных на клиенте с использованием экосистемы React 19 и TypeScript."
+    ]
+  },
+  'sakura-chess': {
+    id: "sakura-chess",
+    title: "Sakura Chess (Шахматы с AI)",
+    type: "pet",
+    badge: "Личный проект",
+    shortDescription: "Высокопроизводительное десктопное шахматное приложение со встроенной нейросетевой интеграцией ИИ-движка.",
+    stack: ["C#", ".NET 8", "WPF", "Material Design", "Lc0 Engine", "Asynchronous Streams"],
+    githubUrl: "https://github.com/D4cLoves/SacuraChess",
+    metrics: [
+      "Обеспечен асинхронный UI-поток, исключающий фризы интерфейса при расчетах ИИ.",
+      "Реализована поддержка классических шахмат и режима Chess960 (Шахматы Фишера).",
+      "Проект полностью упакован в дистрибутив для конечного пользователя Windows."
     ],
-    githubUrl: 'https://github.com/D4cLoves'
+    engineeringTasks: [
+      "Разработка настольного интерфейса на платформе WPF с применением паттерна MVVM (Model-View-ViewModel) и стилизацией под гайдлайны Material Design.",
+      "Интеграция нейросетевого шахматного движка Lc0 (Leela Chess Zero) через CLI‑интерфейс с организацией асинхронной обработки потоков данных в реальном времени.",
+      "Реализация движка внутренней шахматной логики, валидации корректности ходов, контроля лимитов времени (таймеры) и навигации по истории сыгранной партии.",
+      "Сборка, конфигурирование зависимостей и упаковка готового продукта в полноценный Windows-установщик (Installer)."
+    ]
   }
 };
 
@@ -85,29 +124,29 @@ export function initModals() {
     // Build content using new BEM classes
     let contentHtml = `
       <h3 class="modal-case__title">${data.title}</h3>
-      <div class="modal-case__category">${data.category === 'pet' ? 'Пет-проект' : 'Коммерческий проект'}</div>
+      <div class="modal-case__category">${data.badge}</div>
       
       <div class="modal-case__tags">
         ${data.stack.map(tech => `<span class="tag tag--accent">${tech}</span>`).join('')}
       </div>
 
-      <p class="modal-case__desc">${data.description}</p>
+      <p class="modal-case__desc">${data.shortDescription}</p>
     `;
 
-    if (data.achievements && data.achievements.length > 0) {
+    if (data.metrics && data.metrics.length > 0) {
       contentHtml += `
-        <h4 class="modal-case__section-title">Ключевые достижения:</h4>
+        <h4 class="modal-case__section-title">Ключевые метрики / Результаты:</h4>
         <ul class="modal-case__achievements">
-          ${data.achievements.map(item => `<li>${item}</li>`).join('')}
+          ${data.metrics.map(item => `<li>${item}</li>`).join('')}
         </ul>
       `;
     }
 
-    if (data.architectureFeatures && data.architectureFeatures.length > 0) {
+    if (data.engineeringTasks && data.engineeringTasks.length > 0) {
       contentHtml += `
-        <h4 class="modal-case__section-title">Архитектура и решения:</h4>
+        <h4 class="modal-case__section-title">Инженерные задачи и архитектура:</h4>
         <ul class="modal-case__achievements">
-          ${data.architectureFeatures.map(item => `<li>${item}</li>`).join('')}
+          ${data.engineeringTasks.map(item => `<li>${item}</li>`).join('')}
         </ul>
       `;
     }

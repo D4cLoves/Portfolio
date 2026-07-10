@@ -72,25 +72,26 @@
             <div class="experience__entry">
               <div class="experience__meta">
                 <h3 class="experience__company">LookMy</h3>
-                <div class="experience__role mono">Fullstack Developer</div>
-                <div class="experience__period">Август 2024 — Настоящее время</div>
+                <div class="experience__role mono">Fullstack-разработчик</div>
+                <div class="experience__period">Октябрь 2024 — Сентябрь 2025 (1 год)</div>
                 <div class="experience__tags">
-                  <span class="tag tag--accent">Symfony</span>
+                  <span class="tag tag--accent">C#</span>
+                  <span class="tag tag--accent">ASP.NET Core</span>
+                  <span class="tag tag--accent">React</span>
+                  <span class="tag tag--accent">TypeScript</span>
                   <span class="tag tag--accent">PostgreSQL</span>
-                  <span class="tag tag--accent">Vue.js</span>
                   <span class="tag tag--accent">Docker</span>
                 </div>
               </div>
               <div class="experience__details">
                 <p class="experience__summary">
-                  Проектирование архитектуры и реализация бизнес-требований на всех слоях приложения. Фокус на Clean Architecture и DDD.
+                  Развитие и оптимизация fullstack-части крупного SaaS-конструктора сайтов в продуктовой команде. Закрытие задач уровня End-to-End.
                 </p>
                 <ul class="experience__achievements">
-                  <li>Спроектировал и реализовал архитектуру на базе <b>DDD (Domain-Driven Design)</b>, разделив бизнес-логику от инфраструктуры.</li>
-                  <li>Разработал интеграции с платежной системой <b>YooKassa</b>, обеспечив надежную обработку транзакций и вебхуков.</li>
-                  <li>Реализовал систему уведомлений для пользователей, включая email-рассылки и in-app оповещения.</li>
-                  <li>Создал парсер данных с маркетплейса <b>Wildberries</b> для автоматизации сбора информации о товарах.</li>
-                  <li>Настроил CI/CD пайплайны и докеризацию для бесшовного деплоя.</li>
+                  <li>Проектирование и интеграция модуля <b>полнотекстового поиска</b> по заголовкам и содержимому пользовательских страниц на стороне бэкенда с использованием возможностей PostgreSQL.</li>
+                  <li>Глубокий рефакторинг, редизайн и унификация устаревших UI-компонентов конструктора с переводом их на стек <b>React + TypeScript</b> под единую дизайн-систему приложения.</li>
+                  <li>Устранение архитектурной проблемы с асинхронным обновлением описаний модулей в визуальном редакторе, обеспечив стабильную реактивную загрузку данных без перезагрузки страниц.</li>
+                  <li>Самостоятельное сквозное (End-to-End) ведение продуктовых фич: от сбора и анализа бизнес-требований до проектирования схем данных, написания Web API, верстки и релиза.</li>
                 </ul>
               </div>
             </div>
@@ -109,23 +110,22 @@
               <div class="stack__group">
                 <h3 class="stack__group-title mono">// Core Expert</h3>
                 <div class="stack__tags">
-                  <span class="tag tag--core">PHP 8+</span>
-                  <span class="tag tag--core">Symfony</span>
+                  <span class="tag tag--core">C# / .NET 8+</span>
+                  <span class="tag tag--core">ASP.NET Core</span>
                   <span class="tag tag--core">PostgreSQL</span>
                   <span class="tag tag--core">TypeScript</span>
-                  <span class="tag tag--core">Vue.js / React</span>
+                  <span class="tag tag--core">React</span>
                 </div>
               </div>
               <div class="stack__group">
                 <h3 class="stack__group-title mono">// Ecosystem & Tools</h3>
                 <div class="stack__tags">
-                  <span class="tag tag--ecosystem">Docker</span>
+                  <span class="tag tag--ecosystem">Docker Compose</span>
                   <span class="tag tag--ecosystem">Redis</span>
-                  <span class="tag tag--ecosystem">RabbitMQ</span>
+                  <span class="tag tag--ecosystem">Entity Framework</span>
                   <span class="tag tag--ecosystem">Git / CI/CD</span>
-                  <span class="tag tag--ecosystem">Linux</span>
-                  <span class="tag tag--ecosystem">Nginx</span>
                   <span class="tag tag--ecosystem">Clean Architecture</span>
+                  <span class="tag tag--ecosystem">DDD</span>
                   <span class="tag tag--ecosystem">REST API</span>
                 </div>
               </div>
@@ -143,45 +143,45 @@
 
             <div class="projects__grid">
               <!-- Project 1 -->
-              <article class="project-card" tabindex="0" role="button" aria-label="Открыть проект Backend / Poll System" data-project-id="poll-system">
+              <article class="project-card" tabindex="0" role="button" aria-label="Открыть проект Momentum" data-project-id="momentum-tracker">
                 <div class="project-card__bg-number mono">01</div>
                 <div class="project-card__content">
-                  <h3 class="project-card__title">Poll System</h3>
-                  <p class="project-card__desc">Система создания и прохождения опросов с развитой ролевой моделью и REST API.</p>
+                  <h3 class="project-card__title">Momentum</h3>
+                  <p class="project-card__desc">SaaS-платформа для трекинга фокуса, сессий и персональной статистики с микросервисной архитектурой.</p>
                   <div class="project-card__tags">
-                    <span class="tag tag--minimal">PHP 8.2</span>
-                    <span class="tag tag--minimal">Symfony 7</span>
-                    <span class="tag tag--minimal">PostgreSQL</span>
+                    <span class="tag tag--minimal">React 19</span>
+                    <span class="tag tag--minimal">ASP.NET Core</span>
+                    <span class="tag tag--minimal">Redis</span>
                   </div>
                   <div class="project-card__action mono">Смотреть детали -></div>
                 </div>
               </article>
 
               <!-- Project 2 -->
-              <article class="project-card" tabindex="0" role="button" aria-label="Открыть проект EGE Simulator" data-project-id="ege-simulator">
+              <article class="project-card" tabindex="0" role="button" aria-label="Открыть проект MediCare System" data-project-id="medicare-system">
                 <div class="project-card__bg-number mono">02</div>
                 <div class="project-card__content">
-                  <h3 class="project-card__title">EGE Simulator</h3>
-                  <p class="project-card__desc">Игровая платформа для подготовки к ЕГЭ. Интерактивные тесты и система рейтингов.</p>
+                  <h3 class="project-card__title">MediCare System</h3>
+                  <p class="project-card__desc">Медицинская учетная система корпоративного уровня, демонстрирующая применение паттернов DDD.</p>
                   <div class="project-card__tags">
+                    <span class="tag tag--minimal">EF Core</span>
                     <span class="tag tag--minimal">React</span>
-                    <span class="tag tag--minimal">Redux Toolkit</span>
-                    <span class="tag tag--minimal">SCSS</span>
+                    <span class="tag tag--minimal">DDD</span>
                   </div>
                   <div class="project-card__action mono">Смотреть детали -></div>
                 </div>
               </article>
 
               <!-- Project 3 -->
-              <article class="project-card" tabindex="0" role="button" aria-label="Открыть проект Fullstack / Online Store" data-project-id="online-store">
+              <article class="project-card" tabindex="0" role="button" aria-label="Открыть проект Sakura Chess" data-project-id="sakura-chess">
                 <div class="project-card__bg-number mono">03</div>
                 <div class="project-card__content">
-                  <h3 class="project-card__title">E-Commerce Store</h3>
-                  <p class="project-card__desc">Полноценный интернет-магазин с каталогом, корзиной и панелью администратора.</p>
+                  <h3 class="project-card__title">Sakura Chess</h3>
+                  <p class="project-card__desc">Высокопроизводительное десктопное шахматное приложение со встроенной нейросетевой интеграцией ИИ.</p>
                   <div class="project-card__tags">
-                    <span class="tag tag--minimal">Vue 3</span>
-                    <span class="tag tag--minimal">Vuex</span>
-                    <span class="tag tag--minimal">Tailwind</span>
+                    <span class="tag tag--minimal">C# / WPF</span>
+                    <span class="tag tag--minimal">Lc0 Engine</span>
+                    <span class="tag tag--minimal">.NET 8</span>
                   </div>
                   <div class="project-card__action mono">Смотреть детали -></div>
                 </div>
